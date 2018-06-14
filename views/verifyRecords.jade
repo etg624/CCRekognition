@@ -1,0 +1,95 @@
+<!-- ###### Mon Oct 2 10:24:04 PDT 2017  Added In/Out, replaced "contractor"-->
+<!-- ###### Mon Feb 2 10:24:04 PDT 2017  Added Result field-->
+<!-- ###### Fri Feb 9 17:40:21 PST 2018 Adding user defined display limit and date search range -->
+<!-- ###### Fri Apr 17 17:40:21 PST 2018 Adding ClientSWId as device auth code (was mobssoperator) -->
+<!-- ###### Sat Apr 26 18:17:55 CDT 2018 Get the descriptive name for the device -->
+
+
+
+include mixins
+extends layout
+block content   
+            include navbar
+
+            h3 Card-scan events
+            br
+        
+            form.form-vertical(method='post')
+                fieldset
+                    .row
+                        .col-md-4.col-sm-6.col-xs-12
+                            .form-group
+                                label.col-lg-2.control-label(for='inputEmail') Date range:
+                                .col-lg-10
+                                    input#datepicker1.form-control(type='text',name='startDate', value=displaySearchStart)  
+                            .form-group
+                                .col-lg-10
+                                    input#datepicker2.form-control(type='text',name='endDate', value=displaySearchEnd)
+                        .col-md-4.col-sm-6.col-xs-12
+                            br
+                            br
+                            button.btn.btn-primary.btn(type="submit") Click to search date range  
+            br                         
+            div
+                table#pickle.table.table-hover.table-striped.table-bordered
+                    thead
+                        tr.danger  
+                            th
+                            th Employee ID
+                            th Badge ID
+                            th Last Name
+                            th Scan Date/Time
+                            th Access Result
+                            th In/Out
+                            th Device
+                            th Operator ID
+                            
+                    tbody
+                        -each result in results
+                            tr
+                                    td
+                                        a(href="/verifyCheck/#{result.BadgeID}") All for Badge  
+                                        br
+                                    td=result.EmpID
+                                    td=result.BadgeID
+                                    td=result.LastName
+                                    td=result.ScanDateTime
+                                    td=result.Result
+                                    td=result.InOutType
+                                    td=result.DeviceAuthCodeDesc
+                                    td=result.MobSSOperator
+
+
+                script.
+                    $(document).ready(function() {
+                    $('#pickle').DataTable();
+                    });
+                script.
+                    $(document).ready(function() {
+                    $('#pickle tr').click(function() {
+                    var href = $(this).find("a").attr("href");
+                        if(href) {
+                            window.location = href;
+                        }
+                    });
+                    });
+
+                link(rel='stylesheet', href='/javascripts/jquery-ui.css')         
+                link(rel='stylesheet', href='/javascripts/jquery.timepicker.css')
+                            
+                script(src='/javascripts/jquery.timepicker.min.js')
+                script.
+                    $( function() {
+                    $( "#timepicker" ).timepicker({timeFormat : "H:i:s"});
+                    } );
+
+                script(src='/javascripts/jquery-ui.js')
+                script.
+                    $( function() {
+                    $( "#datepicker1" ).datepicker({dateFormat: "yy-mm-dd"});
+                    } );
+                script.
+                    $( function() {
+                    $( "#datepicker2" ).datepicker({dateFormat: "yy-mm-dd"});
+                    } );
+           

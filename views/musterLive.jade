@@ -1,0 +1,89 @@
+//###### Tue June 05 08:29:13 PDT 2018 - parameterize server address for sms
+
+include mixins
+extends layout
+block content   
+		include navbar
+
+		head
+			script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAyfHUvqcdI0dWYtOXoVHPpBlH0QAQ9srI')
+			script(type="text/javascript", src="/perfect-scrollbar/dist/perfect-scrollbar.js")
+			script(type="text/javascript", src="/mapStyle.js")
+			script(src='/snazzy-info-window-master/dist/snazzy-info-window.min.js')
+			link(rel='stylesheet', href='/perfect-scrollbar/css/perfect-scrollbar.css')
+			link(href='/snazzy-info-window-master/dist/snazzy-info-window.min.css', rel='stylesheet')
+			link(href='/snazzy-info-window-master/dist/styles.css', rel='stylesheet')
+			style.
+				#map {
+				height: 600px;
+				width: 100%;
+				}
+			container
+				.row
+					.col-md-12.col-sm-12.col-xs-12
+						.progress.progress-striped.active							
+							.progress-bar.progress-bar-success(id = 'progressBar' style='width: #{overallProgress}')
+								|  #{overallProgress}
+				.row				
+					.col-md-3.col-sm-3.col-xs-12								
+						.row
+							div#mainTitleContainer.scrollable-table-small
+								table#pickle.table.table-hover.table-striped.table-bordered
+									thead
+										tr
+											th(colspan="2") Live Muster -- #{musterName} [##{musterID}]
+						form.form-signin(class="form-horizontal", Action="/musterLive/#{musterID}", method="post")
+							.form-group											
+						.row				
+								button.btn.btn-danger.btn-block(type='submit') Email Unaccounted		  
+								button.btn.btn-danger.btn-block(id = 'textButton' type='button') SMS Unaccounted	  																								
+						.row						
+							div#dataContainer.scrollable-table-small
+								table#pickle.table.table-hover.table-striped.table-bordered
+									tbody
+										tr
+											td Total Counted: 
+											td #{resTotalScanned}		
+										tr
+											td Known from Evac List: 
+											td #{resTotalFromEvacList}
+										tr
+											td Manual check-ins of unknowns: 
+											td #{resTotalUnknown}											
+										tr
+											td Check-ins with invalid cards: 
+											td #{resTotalInvalid}																																																													
+						.row
+							div#titleContainer.scrollable-table-small
+								table#pickle.table.table-hover.table-striped.table-bordered
+									thead
+										tr
+											th(colspan="2") Unaccounted on Evac List: 	
+											th #{missingCount}							
+						.row							
+							div#evacContainer.scrollable-table-large
+								table#pickle.table.table-hover.table-striped.table-bordered
+									thead
+										tr
+											th Badge ID
+											th Last Name
+											th First Name
+									tbody
+									-each resEvac in resEvacDisplay
+										tr
+											td=resEvac.iClassNumber
+											td=resEvac.LastName
+											td=resEvac.FirstName
+					.col-md-9.col-sm-9.col-xs-12
+						#map
+						script(src='/Muster-Scripts/musterLive.js')
+						script.
+							var data = !{JSON.stringify(resz2)};
+							var serverAddress = !{JSON.stringify(serverAddress)};
+							var centerLat = !{musterLat}
+							var centerLng = !{musterLng}	
+							var musterID = !{musterID};					
+							initMap();
+						br
+						br
+			include footer

@@ -1,0 +1,29 @@
+include mixins
+extends layout
+block content 
+            include navbar
+            h3 Cardholder picture search
+
+            form(method='post')    
+              h5 Last Name:
+                &nbsp
+                input(type='directory', name='empIDSearch', value='#{imageLast}')
+                &nbsp
+                button.btn.btn-primary(type="submit") Search gallery
+                br
+                h5(style="color: #CC3300;") #{sess.photoCheckError}
+                h5(style="color: #CC3300;") #{sess.photoCheckError1}
+                each image in images
+                 img(src=image) 
+              br
+              br
+              include footer
+
+
+
+
+      
+     
+     
+
+      

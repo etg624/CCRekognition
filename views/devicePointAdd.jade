@@ -1,0 +1,51 @@
+<!-- ###### Fri Apr 21 17:40:21 PST 2018 Add device name  -->
+
+include mixins
+extends layout
+block content   
+
+            include navbar
+
+            h3 Available Devices for Muster Point -- #{pointID}
+            h5 If your device doesn't appear here it may already be assigned to another Muster Point
+
+            br
+
+          
+            div
+                table#pickle.table.table-hover.table-striped.table-bordered
+                    thead
+                        tr  
+                            th
+                            th Name
+                            th AuthCode
+                            th Current status
+                            th Date issued
+                    tbody
+                        -each result in results
+                            tr
+                                    td
+                                       a(href="/musterPointAddDevice/#{result.AuthCode}/#{pointID}") Select
+                                    td=result.name
+                                    td=result.AuthCode
+                                    td=result.CurrentStatus
+                                    td=result.DateIssued
+
+                script.
+                    $(document).ready(function() {
+                    $('#pickle').DataTable();
+                    });
+                script.
+                    $(document).ready(function() {
+                    $('#pickle tr').click(function() {
+                    var href = $(this).find("a").attr("href");
+                        if(href) {
+                            window.location = href;
+                        }
+                    });
+                    });
+            div 
+                br
+                .col-md-4.col-sm-6.col-xs-12
+                    form.form-signin(class="form-horizontal", Action="/musterPoints", method="get")
+                        button.btn.btn-warning.btn-lg(type="submit") Skip device 

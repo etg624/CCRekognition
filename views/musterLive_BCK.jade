@@ -1,0 +1,79 @@
+include mixins
+extends layout
+block content   
+            include navbar
+
+            head
+            //-    meta(http-equiv='refresh', content='10')
+            h3 Muster in progress
+            
+
+            .progress.progress-striped.active
+                
+                .progress-bar.progress-bar-success(style='width: #{overallProgress}')
+                    | #{overallProgress}
+              
+            br
+
+           
+
+            .row
+                .col-md-6.col-sm-6.col-xs-12
+                        .col-md-6.col-sm-6.col-xs-12
+                        .panel.panel-danger
+                          .panel-heading
+                            h3.panel-title Remain Unaccounted
+                          .panel-body
+                            | #{missingCount}
+
+                        div
+                            table#pickle.table.table-hover.table-striped.table-bordered
+                                thead
+                                    tr
+                                        th Badge ID
+                                        th First Name
+                                        th Last Name
+                                tbody
+                                -each resEvac in resEvacs
+                                    tr
+                                        td=resEvac.iClassNumber
+                                        td=resEvac.FirstName
+                                        td=resEvac.LastName
+                .col-md-6.col-sm-6.col-xs-12
+                        .panel.panel-success
+                          .panel-heading
+                            h3.panel-title Live Count from Devices
+                          .panel-body
+                            |  #{resTotalScanned}
+
+                        div
+                            table#pickle.table.table-hover.table-striped.table-bordered
+                                thead
+                                    tr
+                                        th Muster Point
+                                        th Description
+                                        th Device ID
+                                        th Safe Count
+                                tbody
+                                -each resz in resz2
+                                    tr
+                                        td=resz.PointID
+                                        td=resz.Description
+                                        td=resz.MobSSOperator
+                                        td=resz.count
+
+
+
+            br
+            br    
+            
+            include footer
+ 
+        
+   
+ 
+
+
+
+
+    

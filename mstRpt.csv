@@ -1,0 +1,18 @@
+FirstName,YES
+LastName,YES
+InTIme,YES
+OutTIme,NO
+iClassNumber,YES
+AttendDate,YES
+InSeconds,NO
+OutSeconds,NO
+EmpID,YES
+MobSSOperator,YES
+EventID,YES
+Email,YES
+Identifier1,NO
+ReportPrefix,Mustering activity report
+DeviceAuthCode,YES
+CheckInType,YES
+OrderBy,Device
+MusterPoint,YES

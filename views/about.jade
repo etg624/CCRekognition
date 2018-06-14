@@ -1,0 +1,21 @@
+
+include mixins
+extends layout
+block content 
+	include navbar
+	#wrapper
+		br
+		h2 Mobile Security Solutions
+		br
+		br
+		blockquote
+			p
+				P!= version
+				P!= clientname
+				P!= computername
+				P!= userdomain
+				P!= dblocation
+			small
+				| For support, please contact us at 
+				cite(title='Source Title') admin@mobss.com
+		include footer

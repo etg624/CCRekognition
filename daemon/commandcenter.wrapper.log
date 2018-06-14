@@ -1,0 +1,163 @@
+2017-10-20 07:25:18 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-20 07:25:18 - Started 6220
+2017-10-20 08:01:24 - Stopping commandcenter.exe
+2017-10-20 08:01:24 - ProcessKill 6220
+2017-10-20 08:01:24 - Found child process: 9772 Name: conhost.exe
+2017-10-20 08:01:24 - Found child process: 18448 Name: node.exe
+2017-10-20 08:01:24 - Stopping process 9772
+2017-10-20 08:01:24 - Send SIGINT 9772
+2017-10-20 08:01:24 - SIGINT to 9772 failed - Killing as fallback
+2017-10-20 08:01:25 - Stopping process 18448
+2017-10-20 08:01:25 - Send SIGINT 18448
+2017-10-20 08:01:25 - SIGINT to 18448 failed - Killing as fallback
+2017-10-20 08:01:25 - Stopping process 6220
+2017-10-20 08:01:25 - Send SIGINT 6220
+2017-10-20 08:01:25 - SIGINT to 6220 failed - Killing as fallback
+2017-10-20 08:01:25 - Finished commandcenter.exe
+2017-10-21 09:16:42 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-21 09:16:42 - Started 6236
+2017-10-21 09:17:45 - Stopping commandcenter.exe
+2017-10-21 09:17:45 - ProcessKill 6236
+2017-10-21 09:17:48 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-21 09:18:30 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-21 09:18:30 - Started 6648
+2017-10-21 10:57:58 - Stopping commandcenter.exe
+2017-10-21 10:57:59 - ProcessKill 6648
+2017-10-21 10:58:01 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-21 10:58:58 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-21 10:59:03 - Started 7320
+2017-10-21 11:48:48 - Stopping commandcenter.exe
+2017-10-21 11:48:48 - ProcessKill 7320
+2017-10-21 11:48:49 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-21 11:49:31 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-21 11:49:31 - Started 5324
+2017-10-21 12:55:49 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-21 12:55:54 - Started 6000
+2017-10-21 13:38:40 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-21 13:38:42 - Started 5896
+2017-10-22 12:54:13 - Stopping commandcenter.exe
+2017-10-22 12:54:13 - ProcessKill 5896
+2017-10-22 12:54:13 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-22 12:55:06 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-22 12:55:11 - Started 5360
+2017-10-22 13:09:22 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-22 13:09:22 - Started 5164
+2017-10-22 13:53:01 - Stopping commandcenter.exe
+2017-10-22 13:53:01 - ProcessKill 5164
+2017-10-22 13:53:01 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-22 13:53:51 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-22 13:53:51 - Started 4740
+2017-10-24 08:24:35 - Stopping commandcenter.exe
+2017-10-24 08:24:35 - ProcessKill 4740
+2017-10-24 08:24:35 - Found child process: 4808 Name: conhost.exe
+2017-10-24 08:24:35 - Found child process: 172 Name: node.exe
+2017-10-24 08:24:35 - Stopping process 4808
+2017-10-24 08:24:35 - Send SIGINT 4808
+2017-10-24 08:24:35 - SIGINT to 4808 failed - Killing as fallback
+2017-10-24 08:24:36 - Stopping process 172
+2017-10-24 08:24:36 - Send SIGINT 172
+2017-10-24 08:24:36 - SIGINT to 172 failed - Killing as fallback
+2017-10-24 08:24:36 - Stopping process 4740
+2017-10-24 08:24:36 - Send SIGINT 4740
+2017-10-24 08:24:36 - SIGINT to 4740 failed - Killing as fallback
+2017-10-24 08:24:36 - Finished commandcenter.exe
+2017-10-24 08:24:37 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 08:24:37 - Started 60412
+2017-10-24 08:26:48 - Stopping commandcenter.exe
+2017-10-24 08:26:48 - ProcessKill 60412
+2017-10-24 08:26:48 - Found child process: 59608 Name: conhost.exe
+2017-10-24 08:26:48 - Found child process: 8524 Name: node.exe
+2017-10-24 08:26:49 - Stopping process 59608
+2017-10-24 08:26:49 - Send SIGINT 59608
+2017-10-24 08:26:49 - SIGINT to 59608 failed - Killing as fallback
+2017-10-24 08:26:49 - Stopping process 8524
+2017-10-24 08:26:49 - Send SIGINT 8524
+2017-10-24 08:26:49 - SIGINT to 8524 failed - Killing as fallback
+2017-10-24 08:26:49 - Stopping process 60412
+2017-10-24 08:26:49 - Send SIGINT 60412
+2017-10-24 08:26:49 - SIGINT to 60412 failed - Killing as fallback
+2017-10-24 08:26:49 - Finished commandcenter.exe
+2017-10-24 10:04:02 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 10:04:02 - Started 36424
+2017-10-24 10:04:30 - Stopping commandcenter.exe
+2017-10-24 10:04:30 - ProcessKill 36424
+2017-10-24 10:04:30 - Found child process: 35972 Name: conhost.exe
+2017-10-24 10:04:30 - Found child process: 44732 Name: node.exe
+2017-10-24 10:04:30 - Stopping process 35972
+2017-10-24 10:04:30 - Send SIGINT 35972
+2017-10-24 10:04:30 - SIGINT to 35972 failed - Killing as fallback
+2017-10-24 10:04:31 - Stopping process 44732
+2017-10-24 10:04:31 - Send SIGINT 44732
+2017-10-24 10:04:31 - SIGINT to 44732 failed - Killing as fallback
+2017-10-24 10:04:31 - Stopping process 36424
+2017-10-24 10:04:31 - Send SIGINT 36424
+2017-10-24 10:04:31 - SIGINT to 36424 failed - Killing as fallback
+2017-10-24 10:04:31 - Finished commandcenter.exe
+2017-10-24 10:05:01 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js --log "Command Center wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 10:05:01 - Started 44336
+2017-10-24 10:13:21 - Stopping commandcenter.exe
+2017-10-24 10:13:21 - ProcessKill 44336
+2017-10-24 10:13:21 - Found child process: 36428 Name: conhost.exe
+2017-10-24 10:13:21 - Found child process: 4916 Name: node.exe
+2017-10-24 10:13:24 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()

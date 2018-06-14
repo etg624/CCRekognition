@@ -1,0 +1,128 @@
+include mixins
+extends layout
+block content   
+			include navbar
+
+			head
+				script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAyfHUvqcdI0dWYtOXoVHPpBlH0QAQ9srI')
+				script(type="text/javascript", src="/perfect-scrollbar/dist/perfect-scrollbar.js")
+				script(type="text/javascript", src="/mapStyle.js")
+				script(src='/snazzy-info-window-master/dist/snazzy-info-window.min.js')
+				link(rel='stylesheet', href='/perfect-scrollbar/css/perfect-scrollbar.css')
+				link(href='/snazzy-info-window-master/dist/snazzy-info-window.min.css', rel='stylesheet')
+				link(href='/snazzy-info-window-master/dist/styles.css', rel='stylesheet')
+				style.
+					#map {
+					height: 600px;
+					width: 100%;
+					}
+			meta(http-equiv='refresh', content='10')
+			h3 Live Muster -- #{musterName} [##{musterID}]
+			form.form-signin(class="form-horizontal", Action="/musterLive/#{musterID}", method="post")
+
+				.row
+					.col-md-9.col-sm-9.col-xs-12
+						.progress.progress-striped.active
+							
+							.progress-bar.progress-bar-success(style='width: #{overallProgress}')
+								|  #{overallProgress}	
+					
+					.form-group
+						.col-md-3.col-sm-3.col-xs-12
+							button.btn.btn-danger.btn-lg(type='submit') Email Unaccounted		  
+				.row
+					.col-md-3.col-sm-3.col-xs-12
+						.row
+							p.text-warning Total Counted: #{resTotalScanned}
+							h6 Known from Evac List: #{resTotalFromEvacList}
+							h6 Manual check-ins of unknowns: #{resTotalUnknown}
+							h6 Check-ins with invalid cards: #{resTotalInvalid}
+
+							p.text-danger Unaccounted on Evac List: #{missingCount}
+						.row
+							div#evacContainer.scrollable-table-large
+								table#pickle.table.table-hover.table-striped.table-bordered
+									thead
+										tr
+											th Badge ID
+											th Last Name
+											th First Name
+									tbody
+									-each resEvac in resEvacDisplay
+										tr
+											td=resEvac.iClassNumber
+											td=resEvac.LastName
+											td=resEvac.FirstName
+
+					.col-md-9.col-sm-9.col-xs-12
+						#map
+						script.
+							function initMap() {
+							var data = !{JSON.stringify(resz2)};
+							var centerLat = !{musterLat}
+							var centerLng = !{musterLng}
+
+							const evacContainer = parent.document.querySelector('#evacContainer');
+							const evacPS = new PerfectScrollbar(evacContainer);
+
+							// PARAMETERIZE the map center so that customer can set this up when they 
+							// define a muster
+							//var center = {lat: 34.0259013, lng: -118.3755216};
+							var center = {lat: centerLat, lng: centerLng};
+
+							var map = new google.maps.Map(document.getElementById('map'), {
+							styles: mapStyle,
+							zoom: 16,
+							center: center,
+							mapTypeId: google.maps.MapTypeId.MAP
+							});
+
+							//Loop through the array containing all the muster points and associated counts					 
+							for (i = 0 ; i < data.length ; i++){
+								var lat = data[i].Lat;
+								var lng = data[i].Lng;
+								var count = data[i].count;
+								var pointID = data[i].PointID;
+
+
+								//VARIABLES showing the data.PointID and data.Count for each element of the
+								//resz2 array should be inserted here.   Presumably this should be inside the loop
+								var windowString = '<div id="content">'+
+								'<div id="siteNotice">'+
+								'</div>'+
+								'<div id="firstHeading" class="firstHeading" style="color:#000">'+data[i].PointID+' |   <span style = "font-weight: bold">'+ data[i].count + '</span></div>'+
+								'<div id="bodyContent">'+
+								'</div>'+
+								'</div>';
+								
+								var marker = new google.maps.Marker({
+								position: {lat: lat, lng: lng},
+								map: map,
+								title: 'count'
+								});
+								
+								var markerWindow = new SnazzyInfoWindow({
+								marker: marker,
+								content: windowString,
+								showCloseButton: false,
+								offset: {
+								top: '-50px',
+								}
+								});
+
+								markerWindow.open(map, marker);						
+								}
+							}
+							initMap();
+						br
+						br
+			include footer
+ 
+		
+   
+ 
+
+
+
+
+	

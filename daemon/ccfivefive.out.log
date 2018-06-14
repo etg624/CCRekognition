@@ -1,0 +1,64 @@
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss5
+DB_USER=root
+DB_PASS=Ibirapuera!
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=OTHER
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=NO
+SWEEP_TIME=0 10 03 * * 0-6
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila 80
+EMAIL_FROMADDR=admin@mobss.com
+
+here is the sweep time parm 0 10 03 * * 0-6
+Listening on 3000
+App listening on port 443!
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null}
+home handler req.session.ID oyQ5p5m_xc14_apN3FqHiBuDb-AiJMhn
+home handler undefined
+[0mGET / [36m304 [0m1714.258 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [32m200 [0m9.775 ms - 86709[0m
+[0mGET /bootstrap/css/bootstrap.min.css [32m200 [0m7.562 ms - 142553[0m
+[0mGET /bootstrap/js/bootstrap.min.js [32m200 [0m16.548 ms - 37045[0m
+[0mPOST / [36m302 [0m159.456 ms - 46[0m
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null,"username":"mobss","password":"password"}
+home handler req.session.ID oyQ5p5m_xc14_apN3FqHiBuDb-AiJMhn
+home handler mobss
+does this dotenv stuff work Ibirapuera!
+Error while performing common connect query: error connecting to database in db.js
+error connecting to database in db.js
+[0mGET / [32m200 [0m441.566 ms - 1220[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m0.849 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.529 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.518 ms - -[0m
+{ Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials g23sm2951087qta.35 - gsmtp
+    at SMTPConnection._formatError (C:\Users\psb\Dropbox\5.2.2-master\5.2.2-master\node_modules\nodemailer\lib\smtp-connection\index.js:557:19)
+    at SMTPConnection._actionAUTHComplete (C:\Users\psb\Dropbox\5.2.2-master\5.2.2-master\node_modules\nodemailer\lib\smtp-connection\index.js:1253:34)
+    at SMTPConnection._responseActions.push.str (C:\Users\psb\Dropbox\5.2.2-master\5.2.2-master\node_modules\nodemailer\lib\smtp-connection\index.js:340:26)
+    at SMTPConnection._processResponse (C:\Users\psb\Dropbox\5.2.2-master\5.2.2-master\node_modules\nodemailer\lib\smtp-connection\index.js:706:20)
+    at SMTPConnection._onData (C:\Users\psb\Dropbox\5.2.2-master\5.2.2-master\node_modules\nodemailer\lib\smtp-connection\index.js:509:14)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at TLSWrap.onread (net.js:547:20)
+  code: 'EAUTH',
+  response: '535-5.7.8 Username and Password not accepted. Learn more at\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials g23sm2951087qta.35 - gsmtp',
+  responseCode: 535,
+  command: 'AUTH PLAIN' }

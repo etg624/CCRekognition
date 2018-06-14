@@ -1,0 +1,60 @@
+<!-- ###### Fri Apr 24 17:40:21 PST 2018 New screen -->
+
+include mixins
+extends layout
+block content   
+
+            include navbar
+
+           
+            div
+                form.form-horizontal(method='post')
+                    fieldset
+                        legend Delete Muster Point
+                        .form-group
+                            label.col-lg-2.control-label(for='inputEmail') Muster point ID
+                            .col-lg-10
+                                input#inputEmail.form-control(disabled='',type='text', placeholder='', name='pointID', value=result[0].PointID, required='')
+                        .form-group
+                            label.col-lg-2.control-label(for='inputPassword') Lat
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='number', step="any", value=result[0].lat,name='lat')
+                            label.col-lg-2.control-label(for='inputPassword') Long
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='number', step="any", value=result[0].lng,placeholder='', name='lng')
+                       
+                        .form-group
+                            label.col-lg-2.control-label(for='textArea') Description
+                            .col-lg-10
+                                textarea#textArea.form-control(disabled='',rows='3', name='description')=result[0].Description ? result[0].Description : ''
+                        .form-group
+                            label.col-lg-2.control-label(for='inputPassword') Region
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='text', value=result[0].Region,placeholder='', name='region')
+                            label.col-lg-2.control-label(for='inputPassword') Campus
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='text', value=result[0].Campus,placeholder='', name='campus')
+                            label.col-lg-2.control-label(for='inputPassword') Building
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='text', value=result[0].Building,placeholder='', name='building')
+                            label.col-lg-2.control-label(for='inputPassword') Location
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='text', value=result[0].Location,placeholder='', name='location')
+                            label.col-lg-2.control-label(for='inputPassword') Warden
+                            .col-lg-10
+                                input#inputPassword.form-control(disabled='',type='text', value=result[0].Warden,placeholder='', name='warden')
+                        .form-group
+                            label.col-lg-2.control-label(for='disabledInput') Device Associated
+                            .col-lg-10
+                                input#disabledInput.form-control(disabled='', name='deviceAuthCode', value=result[0].DeviceAuthCode)
+                            
+                        .form-group
+                          .col-lg-10.col-lg-offset-2
+                            //-feb--dont need cancel button as could just use browser back button
+                            //-button.btn.btn-default(type='reset') Cancel
+                            button.btn.btn-primary.btn-lg(type='submit') Delete Now
+                       
+                        link(rel='stylesheet', href='/javascripts/jquery-ui.css')         
+                        link(rel='stylesheet', href='/javascripts/jquery.timepicker.css')
+                        
+                     

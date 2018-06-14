@@ -1,0 +1,67 @@
+<!-- ###### Fri Apr 20 17:40:21 PST 2018 change lat lng to number types -->
+
+
+include mixins
+extends layout
+block content   
+
+            include navbar
+
+            
+            div
+                form.form-horizontal(method='post')
+                    fieldset
+                        legend Edit muster details
+                        .form-group
+                            label.col-lg-2.control-label(for='inputEmail') Muster name
+                            .col-lg-10
+                                input#inputEmail.form-control(type='text', placeholder='', name='musterName', value=result[0].EventName, required='')
+                        .form-group
+                            label.col-lg-2.control-label(for='inputPassword') Event date
+                            .col-lg-10
+                                input#datepicker.form-control(type='date', placeholder='', name='eventDate', value=displayDate)
+                            label.col-lg-2.control-label(for='inputPassword') Event time
+                            .col-lg-10
+                                input#timepicker.form-control(type='time', placeholder='', name='eventTime', value=displayTime)
+                            
+                            label.col-lg-2.control-label(for='inputPassword') Location
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', name='location', value=result[0].EventLocationName)
+                            
+                            label.col-lg-2.control-label(for='inputPassword') GPS (Lat)
+                            .col-lg-10
+                                input#inputPassword.form-control(type='number', step="any", name='lat', value=result[0].Latitude)
+                            label.col-lg-2.control-label(for='inputPassword') GPS (Lng)
+                            .col-lg-10
+                                input#inputPassword.form-control(type='number', step="any", name='lng', value=result[0].Longitude)
+                           
+                            label.col-lg-2.control-label(for='inputPassword') Muster Captain
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', name='musterCaptain', value=result[0].EventSponsorName)
+                        
+                        .form-group
+                            label.col-lg-2.control-label(for='textArea') Comments
+                            .col-lg-10
+                                textarea#textArea.form-control(rows='3', name='comments')=result[0].Comments ? result[0].Comments : ''
+                          
+                        .form-group
+                          .col-lg-10.col-lg-offset-2
+                            //-feb--dont need cancel button as could just use browser back button
+                            //-button.btn.btn-default(type='reset') Cancel
+                            button.btn.btn-primary(type='submit') Submit
+
+                        link(rel='stylesheet', href='/javascripts/jquery-ui.css')         
+                        link(rel='stylesheet', href='/javascripts/jquery.timepicker.css')
+                        
+                        script(src='/javascripts/jquery.timepicker.min.js')
+                        script.
+                          $( function() {
+                          $( "#timepicker" ).timepicker({timeFormat : "H:i:s"});
+                          } );
+
+                        script(src='/javascripts/jquery-ui.js')
+                        script.
+                          $( function() {
+                          $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
+                          } );
+               

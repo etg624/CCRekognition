@@ -1,0 +1,72 @@
+
+//###### ###### Sat Apr 17 11:44:28 PST 2018 Use new DeviceAuthCode field
+//###### ###### Sat Apr 17 11:44:28 PST 2018 Display mobssOperator
+//###### ###### Sat Apr 25 11:44:28 PST 2018 Display Muster Point
+//###### ###### Sat Apr 25 11:44:28 PST 2018 Display device description
+//###### ###### Sat Apr 27 11:44:28 PST 2018 Descending order on In Time
+//###### ###### Sat May 01 11:44:28 PST 2018 Download button and Success message removed
+//###### ###### Sat Jun 04 11:44:28 PST 2018 check in type description added
+
+
+
+include mixins
+extends layout
+block content   
+
+        include navbar
+
+        .well
+            h4 Muster records for Muster##{musterID} &nbsp -- &nbsp  #{musterName}
+            h5 [#{eventTempID}]
+        
+        form.form-vertical(method='post')
+                                
+                            
+            br 
+            div
+                table#pickle.table.table-hover.table-striped.table-bordered
+                        thead
+                            tr
+                                th Badge ID
+                                th Last Name
+                                th First Name
+                                th Muster Point
+                                th Device
+                                th Checked in 
+                                th Checked out  
+                                th Check in Type 
+                                th Operator
+               
+                        tbody
+                            -each result in results
+                                tr
+                                        td=result.iClassNumber
+                                        td=result.LastName
+                                        td=result.FirstName
+                                        td=result.MusterPoint
+                                        td=result.DeviceAuthCodeDesc
+                                        td=result.InTIme
+                                        td=result.OutTIme
+                                        td=result.CheckInTypeDesc
+                                        td=result.MobSSOperator
+
+                
+            .row
+                .col-md-4.col-sm-6.col-xs-12
+                    p.text-danger #{sess.rptError}
+                    button.btn.btn-lg.btn-primary(type="submit") Generate report now                        
+                                   
+            script.
+                    $(document).ready(function() {
+                    $('#pickle').DataTable({
+                        "order": [[ 5, "desc" ]]
+                    });
+                    });
+            script.
+                    $(document).ready(function() {
+                    $('#pickle tr').click(function() {
+                    var href = $(this).find("a").attr("href");
+                        if(href) {
+                            window.location = href;
+                        }
+                    });});

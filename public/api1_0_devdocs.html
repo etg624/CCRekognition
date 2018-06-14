@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>api1_0_devdocs</title>
+
+
+<style type="text/css">
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+ol,
+ul,
+li,
+img {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html * {
+  font-family: "ff-din-web-pro-1", "ff-din-web-pro-2", sans-serif;
+  font-size: 16px;
+  line-height: 19.2px;
+  color-profile: sRGB;
+}
+body {
+  margin: 40px 70px;
+}
+p {
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+strong {
+  font-weight: bold;
+}
+ol,
+ul {
+  margin-left: 2em;
+  margin-bottom: 20px;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-top: 10px;
+}
+li {
+  margin-bottom: 10px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: lighter;
+  text-transform: capitalize;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+h1 {
+  font-size: 24.624px;
+  line-height: 29.548799999999996px;
+}
+h2 {
+  font-size: 24.624px;
+  line-height: 29.548799999999996px;
+}
+h3 {
+  font-size: 23.44px;
+  line-height: 28.128px;
+}
+h4 {
+  font-size: 22.16px;
+  line-height: 26.592px;
+}
+h5 {
+  font-size: 22.16px;
+  line-height: 26.592px;
+}
+h6 {
+  font-size: 22.16px;
+  line-height: 26.592px;
+}
+img {
+  margin-bottom: 20px;
+}
+h1 img,
+h2 img,
+h3 img,
+h4 img,
+h5 img,
+h6 img,
+p img {
+  margin-bottom: 0;
+}
+pre {
+  margin-bottom: 20px;
+}
+pre,
+code {
+  font-family: monospace;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 15px;
+}
+blockquote {
+  border-left: 4px solid;
+  padding: 0 15px;
+}
+blockquote > :first-child {
+  margin-top: 0;
+}
+blockquote > :last-child {
+  margin-bottom: 15px;
+}
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid;
+}
+h2 {
+  border-bottom: 1px solid;
+}
+h3,
+h4,
+h5,
+h6 {
+  border-bottom: none;
+}
+html * {
+  color: #839496;
+}
+html body {
+  background-color: #002b36;
+}
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6 {
+  color: #93a1a1;
+  border-color: #839496;
+}
+html a,
+html a:active,
+html a:visited {
+  color: #93a1a1;
+}
+html a:hover {
+  background-color: #073642;
+}
+html pre {
+  color: #93a1a1;
+  background-color: #073642;
+}
+html a,
+html a:active,
+html a:visited,
+html code.url {
+  color: #b58900;
+}
+html h1 {
+  color: #b58900;
+}
+html h2,
+html h3,
+html h4,
+html h5,
+html h6 {
+  color: #b58900;
+}
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+@media print {
+  body {
+    margin: 0;
+  }
+  * {
+    color: #000 !important;
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">API 1.1 Developer Documentation</h1>
+
+<p>Published by : Mobile Security Solutions inc. Copyright, 2018.</p>
+
+<h2 id="toc_1">Overview</h2>
+
+<p>The MOBSS API is REST-based, uses JSON Web Tokens for authentication and returns responses in JSON.</p>
+
+<p>To interact with the API you&#39;ll need an HTTP library, a JSON Parser and your customer or partner password.  For the examples in this document, we will be using Javascript.</p>
+
+<h2 id="toc_2">Authenticating</h2>
+
+<p>The list of endpoints is given below.  However, the first step in interacting with the API will be <em>authentication</em>.  This involves calling an authenticating endpoint with your credentials and receiving a <a href="#jwt">JSON Web Token</a> (jwt) back.  You can then use this token to call any of the other endpoints.  The authentication endpoint is as follows:</p>
+
+<div><pre><code class="language-javacript">POST /api/authenticate
+
+e.g. https://localhost/api/authenticate</code></pre></div>
+
+<p>This JSON return should look something like:</p>
+
+<div><pre><code class="language-JSON">{
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Enjoy your token!&quot;,
+    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.YWdwYnJ0ZGs.FXyGVuRDjwxVbUiJm6_v7nhBAqaE23LyPKliEla_be4&quot;
+}</code></pre></div>
+
+<p>The parameters for the call are your credentials (issued by MOBSS):</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">Key</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">pass</td>
+<td style="text-align: left">secretpasswd</td>
+</tr>
+</tbody>
+</table>
+
+<p>The parameters are sent in the body using <code>content-type:application/x-www-form-urlencoded</code> header and the call structure is as follows:</p>
+
+<div><pre><code class="language-none">POST /api/authenticate HTTP/1.1
+Host: localhost
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+pass=secretpasswd</code></pre></div>
+
+<h3 id="toc_3">Errors</h3>
+
+<p>When an error occurs with the request, you&#39;ll receive an HTTP response and a JSON response containing further detail about the problem,</p>
+
+<p>The following potential error messages are possible with this endpoint:</p>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Invalid Credentials&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h3 id="toc_4">Authenticating Requests</h3>
+
+<p>Once you have your token, just include it in all subsequent endpoint calls.  Simply pass the token in the body with the key value <code>token</code>.</p>
+
+<p><code>token = eyJhbGciOiJIUzI1NiJ9.YWdwYnJ0ZGs.FXyGVuRDjwxVbUiJm6_v7nhBAqaE23LyPKliEla_be4</code></p>
+
+<h4 id="toc_5">Errors</h4>
+
+<p>The following error is possible when calling all endpoints other than the authentication endpoint, typically as a result of a bad or expired token.</p>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Unauthorised&quot;,
+    &quot;message&quot;: &quot;Unauthorised request&quot;,
+    &quot;status_code&quot;: &quot;401&quot;
+}</code></pre></div>
+
+<p>Other errors resulting from the sending of invalid datatypes or other types of interal API error:</p>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;message&quot;: &quot;Internal API error&quot;,
+    &quot;status_code&quot;: &quot;500&quot;
+}</code></pre></div>
+
+<h1 id="toc_6">API Endpoints</h1>
+
+<p>The following endpoints are available as of this version of the API:</p>
+
+<ul>
+<li><a name="get-people">Get People  [POST /api/getPeople]</a></li>
+<li><a name="get-events">Get Events [POST /api/getEvents]</a></li>
+<li><a name="get-Att">Get Attendance [POST /api/getAttendance]</a></li>
+<li><a name="get-forAtt">Get For Attendee [POST /api/getForAttendee]</a></li>
+<li><a name="add-invLst">Create Invite List [POST /api/createInviteList]</a></li>
+<li><a name="add-Inv">Add Invitee [POST /api/addInvitee]</a></li>
+<li><a name="del-Inv">Delete Invitee [POST /api/delInvitee]</a></li>
+<li><a name="get-markAtt">Mark Attendance [POST /api/markAttendance]</a></li>
+<li><a name="add-Event">Create Event [POST /api/createEvent]</a></li>
+</ul>
+
+<p>The following sections detail instructions for using each of the endpoints.   </p>
+
+<h2 id="toc_7">Get People</h2>
+
+<div><pre><code class="language-none">POST api/getPeople</code></pre></div>
+
+<p>Allows you to retrieve all the cardholders currently in the MOBSS database, or sub-group of these people based on Last Name, Badge Number or Employee ID:</p>
+
+<h4 id="toc_8">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: left">TYPE</th>
+<th style="text-align: left">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">lastName</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Return all cardholders</td>
+</tr>
+<tr>
+<td style="text-align: left">badgeNumber</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">If lastName left blank, return cardholder for given badge number</td>
+</tr>
+<tr>
+<td style="text-align: left">empID</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">If other parms are left blank, return cardholder for given employee ID</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_9">JSON response</h4>
+
+<p>The following is example JSON returned from successful call (Status Code = 200)<br>
+<code>JSON<br>
+{<br>
+        &quot;FirstName&quot;: &quot;William&quot;,<br>
+        &quot;LastName&quot;: &quot;Papillon&quot;,<br>
+        &quot;iClassNumber&quot;: 30584,<br>
+        &quot;updateTime&quot;: &quot;1518037722744&quot;,<br>
+        &quot;EmpID&quot;: &quot;46005&quot;,<br>
+        &quot;Status&quot;: null,<br>
+        &quot;UserName&quot;: null,<br>
+        &quot;Image&quot;: null,<br>
+        &quot;Title&quot;: &quot;Technical Consultant IT&quot;,<br>
+        &quot;imageName&quot;: &quot;46005&quot;,<br>
+        &quot;hasImage&quot;: null,<br>
+        &quot;EmailAddr&quot;: null,<br>
+        &quot;Department&quot;: null,<br>
+        &quot;Division&quot;: null,<br>
+        &quot;SiteLocation&quot;: null,<br>
+        &quot;Building&quot;: null,<br>
+        &quot;Identifier1&quot;: null<br>
+    },<br>
+    {<br>
+        &quot;FirstName&quot;: &quot;Robert&quot;,<br>
+        &quot;LastName&quot;: &quot;Moluc&quot;,<br>
+        &quot;iClassNumber&quot;: 30587,<br>
+        &quot;updateTime&quot;: &quot;1518037722744&quot;,<br>
+        &quot;EmpID&quot;: &quot;46004&quot;,<br>
+        &quot;Status&quot;: null,<br>
+        &quot;UserName&quot;: null,<br>
+        &quot;Image&quot;: null,<br>
+        &quot;Title&quot;: &quot;Mgr Design&quot;,<br>
+        &quot;imageName&quot;: &quot;46004&quot;,<br>
+        &quot;hasImage&quot;: null,<br>
+        &quot;EmailAddr&quot;: null,<br>
+        &quot;Department&quot;: null,<br>
+        &quot;Division&quot;: null,<br>
+        &quot;SiteLocation&quot;: null,<br>
+        &quot;Building&quot;: null,<br>
+        &quot;Identifier1&quot;: null<br>
+}<br>
+</code></p>
+
+<h4 id="toc_10">Errors</h4>
+
+<p>No specific errors for this endpoint.</p>
+
+<h2 id="toc_11">Get Events</h2>
+
+<div><pre><code class="language-none">POST api/getEvents</code></pre></div>
+
+<p>Allows you to retrieve all the events currently in the MOBSS database, or sub-group of these based on Event ID, Event Name, Event Date or a range of dates:</p>
+
+<h4 id="toc_12">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: center">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">eventID</td>
+<td style="text-align: center">integer</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Return an event.  If this request parameter is filled in the others are ignored</td>
+</tr>
+<tr>
+<td style="text-align: left">eventName</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">If eventID is left blank, this returns all events with a particular event name</td>
+</tr>
+<tr>
+<td style="text-align: left">eventStartDate</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">If first two parms left blank, returns events on this date OR denotes start of date range search if eventEndDate also in the request</td>
+</tr>
+<tr>
+<td style="text-align: left">eventEndDate</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Returns all events in a date range ending with this date (as long as eventStartDate is also sent in the request and first two parms are blank)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_13">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call (Status Code = 200)<br>
+<code>JSON<br>
+{<br>
+        &quot;EventID&quot;: 101,<br>
+        &quot;EventName&quot;: &quot;Regulatory Training&quot;,<br>
+        &quot;EventDateTime&quot;: &quot;2017-12-05 00:30:00&quot;,<br>
+        &quot;EventLocationName&quot;: &quot;&quot;,<br>
+        &quot;EventSponsorName&quot;: &quot;feb&quot;,<br>
+        &quot;DurationInMins&quot;: &quot;30&quot;,<br>
+        &quot;Latitude&quot;: &quot;null&quot;,<br>
+        &quot;Longitude&quot;: &quot;null&quot;,<br>
+        &quot;RecordStatus&quot;: &quot;null&quot;,<br>
+        &quot;Comments&quot;: &quot;&quot;,<br>
+        &quot;updateTime&quot;: &quot;1512614159630&quot;,<br>
+        &quot;EventsType&quot;: &quot;Meeting&quot;,<br>
+        &quot;InvitationListID&quot;: 0,<br>
+        &quot;TempID&quot;: null<br>
+}<br>
+</code></p>
+
+<h4 id="toc_14">Errors</h4>
+
+<p>No specific errors for this endpoint.</p>
+
+<h2 id="toc_15">Get Attendance</h2>
+
+<div><pre><code class="language-none">POST api/getAttendance</code></pre></div>
+
+<p>Allows you to retrieve all attendance currently in the MOBSS database, or sub-group of these based on Event ID, Event Name, Event Date or a range of dates:</p>
+
+<h4 id="toc_16">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: center">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">eventID</td>
+<td style="text-align: center">integer</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Return all attendance for an event</td>
+</tr>
+<tr>
+<td style="text-align: left">eventName</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Return all attendance for a particular event name, if eventID is left blank</td>
+</tr>
+<tr>
+<td style="text-align: left">attendDate</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Return all attendance for this date, if first two parms are blank</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_17">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call (Status Code = 200)<br>
+<code>JSON<br>
+{       <br>
+        &quot;MobSSID&quot;: 1234,<br>
+        &quot;FirstName&quot;: &quot;dave&quot;,<br>
+        &quot;LastName&quot;: &quot;grobnik&quot;,<br>
+        &quot;InTIme&quot;: &quot;12:34 pm&quot;,<br>
+        &quot;OutTIme&quot;: &quot;14:34 pm&quot;,<br>
+        &quot;EventID&quot;: &quot;97&quot;,<br>
+        &quot;EventName&quot;: &quot;Safety Training&quot;,<br>
+        &quot;iClassNumber&quot;: 1,<br>
+        &quot;AttendDate&quot;: &quot;11/27/17&quot;,<br>
+        &quot;InSeconds&quot;: &quot;1512345672&quot;,<br>
+        &quot;OutSeconds&quot;: &quot;1534343452&quot;,<br>
+        &quot;EmpID&quot;: &quot;435678&quot;,<br>
+        &quot;RecordStatus&quot;: &quot;Local&quot;,<br>
+        &quot;MobSSOperator&quot;: &quot;n0csGiE6wcmTt0aEbdQLp3b1RqIvWaf6UjLN&quot;<br>
+}<br>
+</code></p>
+
+<h4 id="toc_18">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Error querying the attendance table&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h2 id="toc_19">Get For Attendee</h2>
+
+<div><pre><code class="language-none">POST api/getForAttendee</code></pre></div>
+
+<p>Allows you to retrieve all attendance for a particular person currently in the MOBSS database.  Request can be made by employee ID, or combination of first and last name.</p>
+
+<h4 id="toc_20">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: center">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">empID</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Return all attendance for this Employee ID</td>
+</tr>
+<tr>
+<td style="text-align: left">badgeNumber</td>
+<td style="text-align: center">integer</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Return all attendance for this badge number, if empID is blank</td>
+</tr>
+<tr>
+<td style="text-align: left">lastName</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">If first two parms are blank, return all attendance for this last name</td>
+</tr>
+<tr>
+<td style="text-align: left">firstName</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">If first two parms are blank, returns all attendance for this first name or last name/first name combination</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_21">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call (Status Code = 200)<br>
+<code>JSON<br>
+{       <br>
+        &quot;MobSSID&quot;: 1234,<br>
+        &quot;FirstName&quot;: &quot;dave&quot;,<br>
+        &quot;LastName&quot;: &quot;grobnik&quot;,<br>
+        &quot;InTIme&quot;: &quot;12:34 pm&quot;,<br>
+        &quot;OutTIme&quot;: &quot;14:34 pm&quot;,<br>
+        &quot;EventID&quot;: &quot;97&quot;,<br>
+        &quot;EventName&quot;: &quot;Safety Training&quot;,<br>
+        &quot;iClassNumber&quot;: 1,<br>
+        &quot;AttendDate&quot;: &quot;11/27/17&quot;,<br>
+        &quot;InSeconds&quot;: &quot;1512345672&quot;,<br>
+        &quot;OutSeconds&quot;: &quot;1534343452&quot;,<br>
+        &quot;EmpID&quot;: &quot;435678&quot;,<br>
+        &quot;RecordStatus&quot;: &quot;Local&quot;,<br>
+        &quot;MobSSOperator&quot;: &quot;n0csGiE6wcmTt0aEbdQLp3b1RqIvWaf6UjLN&quot;<br>
+}<br>
+</code></p>
+
+<h4 id="toc_22">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Error querying the attendance table&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h2 id="toc_23">Create Invite List</h2>
+
+<div><pre><code class="language-none">POST api/createInviteList</code></pre></div>
+
+<p>Allows you to create an invite list by supplying a name and an optional comment.</p>
+
+<h4 id="toc_24">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: center">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">listName</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Name for the invite list</td>
+</tr>
+<tr>
+<td style="text-align: left">listComment</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Optional comment for the invite list</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_25">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call (Status Code = 200).  Note that the insertId returned provides the database ID for the Invite List for use in adding and deleting Invitees (see later).<br>
+<code>JSON<br>
+{       <br>
+    &quot;fieldCount&quot;: 0,<br>
+    &quot;affectedRows&quot;: 1,<br>
+    &quot;insertId&quot;: 172,<br>
+    &quot;serverStatus&quot;: 2,<br>
+    &quot;warningCount&quot;: 0,<br>
+    &quot;message&quot;: &quot;&quot;,<br>
+    &quot;protocol41&quot;: true,<br>
+    &quot;changedRows&quot;: 0<br>
+}<br>
+</code></p>
+
+<h4 id="toc_26">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Invite List Name is Blank&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h2 id="toc_27">Add Invitee</h2>
+
+<div><pre><code class="language-none">POST api/addInvitee</code></pre></div>
+
+<p>Allows you to add invitees to an invite list.  Note that the listID is provided in the return from api/createInviteList or through commandCenter.  </p>
+
+<h4 id="toc_28">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: right">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">listID</td>
+<td style="text-align: right">int</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Invite List ID</td>
+</tr>
+<tr>
+<td style="text-align: left">badgeNumber</td>
+<td style="text-align: right">int</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Invitee badge number</td>
+</tr>
+<tr>
+<td style="text-align: left">lastName</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Invitee name</td>
+</tr>
+<tr>
+<td style="text-align: left">firstName</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Invitee name</td>
+</tr>
+<tr>
+<td style="text-align: left">emailAddress</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Invitee email</td>
+</tr>
+<tr>
+<td style="text-align: left">notificationNumber</td>
+<td style="text-align: right">int</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Contact number for invitee</td>
+</tr>
+<tr>
+<td style="text-align: left">numberFormat</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Notification number format</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_29">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call (Status Code = 200). <br>
+<code>JSON<br>
+{       <br>
+   &quot;fieldCount&quot;: 0,<br>
+    &quot;affectedRows&quot;: 1,<br>
+    &quot;insertId&quot;: 0,<br>
+    &quot;serverStatus&quot;: 2,<br>
+    &quot;warningCount&quot;: 0,<br>
+    &quot;message&quot;: &quot;&quot;,<br>
+    &quot;protocol41&quot;: true,<br>
+    &quot;changedRows&quot;: 0<br>
+}<br>
+</code></p>
+
+<h4 id="toc_30">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Invite list does not exist&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h2 id="toc_31">Delete Invitee</h2>
+
+<div><pre><code class="language-none">POST api/deleteInvitee</code></pre></div>
+
+<p>Allows you to remove an invitee by supplying the invite list Id and badge number.  Note that the listID is provided in the return from api/createInviteList or through commandCenter.  </p>
+
+<h4 id="toc_32">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: center">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">listID</td>
+<td style="text-align: center">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Invite List ID</td>
+</tr>
+<tr>
+<td style="text-align: left">badgeNumber</td>
+<td style="text-align: center">integer</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Invitee badge number</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_33">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call (Status Code = 200).<br><br>
+<code>JSON<br>
+{       <br>
+    &quot;fieldCount&quot;: 0,<br>
+    &quot;affectedRows&quot;: 1,<br>
+    &quot;insertId&quot;: 0,<br>
+    &quot;serverStatus&quot;: 2,<br>
+    &quot;warningCount&quot;: 0,<br>
+    &quot;message&quot;: &quot;&quot;,<br>
+    &quot;protocol41&quot;: true,<br>
+    &quot;changedRows&quot;: 0<br>
+}<br>
+</code></p>
+
+<h4 id="toc_34">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Error attempting to delete&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h2 id="toc_35">Mark Attendance</h2>
+
+<div><pre><code class="language-none">POST api/markAttendance</code></pre></div>
+
+<p>Allows you to check for an attendance record for a given person and event.</p>
+
+<h4 id="toc_36">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: right">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: right">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">empID</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: right">Person Id</td>
+</tr>
+<tr>
+<td style="text-align: left">eventID</td>
+<td style="text-align: right">int</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: right">Event Id</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_37">JSON response</h4>
+
+<p>The following is example JSON returned from a successful call and attendance record was found (Status Code = 200).<br><br>
+<code>true</code></p>
+
+<p>The following is example JSON returned from a successful call and attendance record was not found (Status Code = 200).<br><br>
+<code>false</code></p>
+
+<h4 id="toc_38">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;EmpID and EventID cannot be blank&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Error querying the attendance table&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<h2 id="toc_39">Create Event</h2>
+
+<div><pre><code class="language-none">POST api/createEvent</code></pre></div>
+
+<p>Allows you to create an Event.  A successful call returns the Event ID.</p>
+
+<h4 id="toc_40">Parameters</h4>
+
+<p>The parameters are sent in the body along with the token, using <code>content-type:application/x-www-form-urlencoded</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">NAME</th>
+<th style="text-align: right">TYPE</th>
+<th style="text-align: right">REQUIRED</th>
+<th style="text-align: left">DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">eventName</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Event name</td>
+</tr>
+<tr>
+<td style="text-align: left">eventDateTime</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Date / time for the event</td>
+</tr>
+<tr>
+<td style="text-align: left">eventLocationName</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Event location</td>
+</tr>
+<tr>
+<td style="text-align: left">eventSponsorName</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Event sponsor</td>
+</tr>
+<tr>
+<td style="text-align: left">durationInMinutes</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Event duration</td>
+</tr>
+<tr>
+<td style="text-align: left">comments</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Freeform comment</td>
+</tr>
+<tr>
+<td style="text-align: left">eventsType</td>
+<td style="text-align: right">string</td>
+<td style="text-align: right">No</td>
+<td style="text-align: left">Type of event</td>
+</tr>
+<tr>
+<td style="text-align: left">invitationListID</td>
+<td style="text-align: right">int</td>
+<td style="text-align: right">Yes</td>
+<td style="text-align: left">Associated Invitation List</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_41">Permitted field values</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">FIELD</th>
+<th style="text-align: left">RESTRICTIONS</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">eventDateTime</td>
+<td style="text-align: left">Correct format is &quot;2018-01-01 23:12:59&quot;</td>
+</tr>
+<tr>
+<td style="text-align: left">eventsType</td>
+<td style="text-align: left">Valid values: &quot;Meeting&quot;, &quot;Training&quot;, &quot;Enrollment&quot;, &quot;Sales event&quot;,   &quot;Assembly&quot;</td>
+</tr>
+<tr>
+<td style="text-align: left">durationInMinutes</td>
+<td style="text-align: left">Valid values: &quot;30&quot;, &quot;60&quot;, &quot;90&quot;, &quot;120&quot;, &quot;180&quot;, &quot;240&quot;, &quot;1440&quot;</td>
+</tr>
+<tr>
+<td style="text-align: left">invitationListID</td>
+<td style="text-align: left">Valid values: 0 or a valid Invitation List ID</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_42">JSON response</h4>
+
+<p>The following is an example Event ID returned from a successful call (Status Code = 200).<br><br>
+<code>106</code></p>
+
+<h4 id="toc_43">Errors</h4>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Event Name is blank&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Event Date / Time is blank&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Invitation List ID must be 0, if no list is to be associated&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;Invitation List ID must be numeric&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+<div><pre><code class="language-JSON">{
+    &quot;error&quot;: &quot;Bad Request&quot;,
+    &quot;message&quot;: &quot;There was a problem creating the event!&quot;,
+    &quot;status_code&quot;: &quot;400&quot;
+}</code></pre></div>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.json={property:/".*?"(?=\s*:)/gi,string:/"(?!:)(\\?[^"])*?"(?!:)/g,number:/\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/g,punctuation:/[{}[\]);,]/g,operator:/:/g,"boolean":/\b(true|false)\b/gi,"null":/\bnull\b/gi},Prism.languages.jsonp=Prism.languages.json;
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>

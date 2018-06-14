@@ -1,0 +1,56 @@
+<!-- ###### Fri Apr 20 17:40:21 PST 2018 change lat lng to number types -->
+
+
+include mixins
+extends layout
+block content   
+
+            include navbar
+
+           
+            div
+                form.form-horizontal(method='post')
+                    fieldset
+                        legend Add Muster Point
+                        .form-group
+                            label.col-lg-2.control-label(for='inputEmail') Muster point ID
+                            .col-lg-10
+                                input#inputEmail.form-control(type='text', placeholder='', name='pointID', required='')
+                        .form-group
+                            label.col-lg-2.control-label(for='inputPassword') Lat
+                            .col-lg-10
+                                input#inputPassword.form-control(type='number', step="any", name='lat')
+                            label.col-lg-2.control-label(for='inputPassword') Long
+                            .col-lg-10
+                                input#inputPassword.form-control(type='number', step="any", name='lng')
+                        .form-group
+                            label.col-lg-2.control-label(for='textArea') Description
+                            .col-lg-10
+                                textarea#textArea.form-control(rows='3', name='description')
+                        .form-group
+                            label.col-lg-2.control-label(for='inputPassword') Region
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', placeholder='', name='region')
+                            label.col-lg-2.control-label(for='inputPassword') Campus
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', placeholder='', name='campus')
+                            label.col-lg-2.control-label(for='inputPassword') Building
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', placeholder='', name='building')
+                            label.col-lg-2.control-label(for='inputPassword') Location
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', placeholder='', name='location')
+                            label.col-lg-2.control-label(for='inputPassword') Warden
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', placeholder='', name='warden')
+                            
+                        .form-group
+                          .col-lg-10.col-lg-offset-2
+                            //-feb--dont need cancel button as could just use browser back button
+                            //-button.btn.btn-default(type='reset') Cancel
+                            button.btn.btn-primary.btn-lg(type='submit') Next
+                       
+                        link(rel='stylesheet', href='/javascripts/jquery-ui.css')         
+                        link(rel='stylesheet', href='/javascripts/jquery.timepicker.css')
+                        
+                     

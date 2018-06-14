@@ -1,0 +1,49 @@
+<!-- ###### ###### Wed Jan 10 08:43:48 PST 2018 Api help screen -->
+<!-- ###### ###### Wed Jan 21 08:43:48 PST 2018 PACS sync screen -->
+<!-- ###### ###### Wed Feb 26 08:43:48 PST 2018 Attendance report format -->
+<!-- ###### ###### Wed Apr 28 08:43:48 PST 2018 Mustering report format -->
+
+
++nav("MOBSS", "dropdown_menu")
+    +nav_item("/", "active") Home
+    +nav_item('/dashboard') Dashboard
+    +nav_item_dropdown("#")(label="Access Control")
+        +nav_item("/cardholders") Cardholders
+        +nav_item("/badges") All badges
+        +nav_item("/badgesActive") Active badges
+        +nav_item("/badgesInactive") Inactive badges
+        +nav_item("/verifyRecords") Card-scan records
+    +nav_item_dropdown("#")(label="Event Control")
+        +nav_item("/events") Past events & Attendance
+        +nav_item("/eventsUpcoming") Upcoming events
+        +nav_item("/eventAdd") Add event
+        +nav_item("/inviteLists") Invite lists
+        +nav_item("/inviteAdd") Add Invite List
+        +nav_item("/ticketImport") Add Import Tickets
+
+    +nav_item_dropdown("#")(label="Emergency Management")
+        +nav_item("/musterHome") Muster list
+        +nav_item("/musterAdd") Add muster
+        +nav_item("/musterPoints") Muster point list
+        +nav_item("/musterPointAdd") Add muster point
+        +nav_item("/evacuationHome") Evacuation Admin
+    +nav_item_dropdown("#")(label="Guard Patrol")
+    +nav_item_dropdown("#")(label="Administration")
+        +nav_item("/devices") Device List
+        +nav_item("/connections") Connections list
+        +nav_divider
+        +nav_item("/csv") CSV file import
+        +nav_item_prompt('test()') PACS Sync
+        //-+nav_item("/PACSImport") PACS Sync
+        +nav_item("/photos") Photo import
+        +nav_item("/photoCheck") Photo search 
+        +nav_divider
+        +nav_item("/users") User list
+        +nav_item("/userAdd") Add user
+    +nav_item_dropdown("#")(label="Settings")
+        +nav_item("/settings") Settings
+        +nav_item("/attReportFormat") Attendance report format
+        +nav_item("/mstReportFormat") Mustering report format
+        +nav_item("/about") About
+        +nav_item("/apiDocs") API Documentation
+    +nav_item("/logout") Logout

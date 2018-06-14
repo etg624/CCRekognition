@@ -1,0 +1,1064 @@
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+App listening on port 443!
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null}
+home handler req.session.ID t-PWqrV1VgPpVqNzBRKYO7pkBWxdwJh4
+home handler undefined
+[0mGET / [36m304 [0m925.137 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m2.728 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m2.272 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m2.697 ms - -[0m
+[0mPOST / [36m302 [0m28.002 ms - 46[0m
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null,"username":"mobss","password":"password"}
+home handler req.session.ID t-PWqrV1VgPpVqNzBRKYO7pkBWxdwJh4
+home handler mobss
+does this dotenv stuff work ms_root_XS12
+USER ADD strSQL= select * from users where UserName="mobss"
+UserPassword = password
+Passwordhash = 70cc61c093eef504c3e5e5311a1928075669e2a59845adcdd19f3c5a0ad62c9fefee4e834fe651a9773ba534dc6e7bc352b99fc19190856bfd38d61235f273ad
+nSalt = 7d70f31427b66199
+sess.userType = 2
+[0mGET / [36m302 [0m199.671 ms - 64[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508253927062"}]
+2017-10-17 08:25:27
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [32m200 [0m260.311 ms - 11802[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m2.081 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.404 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m2.761 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m2.171 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.564 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m1.531 ms - -[0m
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null}
+home handler req.session.ID nR5fWEM8NwJTSujZTSEU5t50q2fzXKDj
+home handler undefined
+[0mGET / [36m304 [0m115.297 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.358 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.581 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m0.647 ms - -[0m
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+App listening on port 443!
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null}
+home handler req.session.ID u2SW6QcMECS_AC7phkn5tk3v04dsq5oX
+home handler undefined
+[0mGET / [36m304 [0m1235.665 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m3.306 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.902 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m3.012 ms - -[0m
+[0mPOST / [36m302 [0m146.113 ms - 46[0m
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null,"username":"mobss","password":"password"}
+home handler req.session.ID u2SW6QcMECS_AC7phkn5tk3v04dsq5oX
+home handler mobss
+does this dotenv stuff work ms_root_XS12
+USER ADD strSQL= select * from users where UserName="mobss"
+UserPassword = password
+Passwordhash = 70cc61c093eef504c3e5e5311a1928075669e2a59845adcdd19f3c5a0ad62c9fefee4e834fe651a9773ba534dc6e7bc352b99fc19190856bfd38d61235f273ad
+nSalt = 7d70f31427b66199
+sess.userType = 2
+[0mGET / [36m302 [0m293.496 ms - 64[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508253927062"}]
+2017-10-17 08:25:27
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [32m200 [0m370.541 ms - 11802[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.574 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.069 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m0.808 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.612 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m2.446 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.515 ms - -[0m
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+App listening on port 443!
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+App listening on port 443!
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+Listening on 3000
+App listening on port 443!
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila
+EMAIL_FROMADDR=admin@mobss.com
+
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss
+DB_USER=root
+DB_PASS=ms_root_XS12
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=AMAG
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=YES
+SWEEP_TIME=0 10 12 * * 0-6
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila 80
+EMAIL_FROMADDR=admin@mobss.com
+
+here is the sweep time parm 0 10 12 * * 0-6
+Listening on 3000
+App listening on port 443!
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null}
+home handler req.session.ID gRYfNogGIsv9UAHB8cw6AH9OHj6hsC8r
+home handler undefined
+[0mGET / [36m304 [0m1712.113 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m2.853 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.829 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m2.383 ms - -[0m
+[0mPOST / [36m302 [0m31.204 ms - 46[0m
+req.session {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"error":null,"username":"mobss","password":"password"}
+home handler req.session.ID gRYfNogGIsv9UAHB8cw6AH9OHj6hsC8r
+home handler mobss
+does this dotenv stuff work ms_root_XS12
+USER ADD strSQL= select * from users where UserName="mobss"
+UserPassword = password
+Passwordhash = 70cc61c093eef504c3e5e5311a1928075669e2a59845adcdd19f3c5a0ad62c9fefee4e834fe651a9773ba534dc6e7bc352b99fc19190856bfd38d61235f273ad
+nSalt = 7d70f31427b66199
+sess.userType = 2
+[0mGET / [36m302 [0m586.646 ms - 64[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [32m200 [0m342.185 ms - 11781[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m2.198 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.524 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m3.284 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.840 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.110 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.472 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m419.905 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.448 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.587 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m1.656 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m3.026 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.377 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.463 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m267.471 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m2.057 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.094 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m1.364 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.445 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.473 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.551 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m386.517 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.256 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.956 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m4.258 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m2.303 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m2.693 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.755 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m261.112 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m0.701 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m1.125 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.960 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m0.549 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.431 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.369 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m306.055 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.397 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.607 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m1.545 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m4.791 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m2.797 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.664 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m186.439 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m4.810 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.597 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m0.681 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.547 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m0.915 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.577 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m401.386 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m0.969 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.160 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m1.008 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.579 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m1.982 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.914 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m164.682 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.569 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m1.204 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.120 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m0.627 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.708 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.408 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m236.361 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m0.982 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.644 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m0.718 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.997 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m3.052 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.458 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m160.197 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m0.694 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.828 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.721 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m1.681 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m0.737 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.428 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m226.263 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m1.268 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m1.320 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.116 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.344 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.412 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.620 ms - -[0m
+does this dotenv stuff work ms_root_XS12
+activate array back in cc []
+results of join[{"maxTime":"1508861404328"}]
+2017-10-24 09:10:04
+row count is 8
+results of join[{"maxTime":null}]
+does this dotenv stuff work ms_root_XS12
+[0mGET /dashboard [36m304 [0m219.020 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m0.623 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m0.696 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m0.684 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.666 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m0.621 ms - -[0m
+[0mGET /bootstrap/fonts/glyphicons-halflings-regular.eot? [36m304 [0m0.468 ms - -[0m
+sess.userType = 2
+[0mGET /settings [36m304 [0m271.170 ms - -[0m
+[0mGET /javascripts/jquery-3.1.1.min.js [36m304 [0m2.446 ms - -[0m
+[0mGET /bootstrap/js/bootstrap.min.js [36m304 [0m1.875 ms - -[0m
+[0mGET /javascripts/jquery-ui.css [36m304 [0m1.759 ms - -[0m
+[0mGET /datatables/datatables.min.css [36m304 [0m1.743 ms - -[0m
+[0mGET /bootstrap/css/bootstrap.min.css [36m304 [0m1.447 ms - -[0m
+[0mGET /javascripts/jquery.timepicker.css [36m304 [0m0.600 ms - -[0m
+[0mGET /datatables/datatables.min.js [36m304 [0m0.572 ms - -[0m
+[0mGET /javascripts/jquery.timepicker.min.js [36m304 [0m0.677 ms - -[0m
+[0mGET /javascripts/jquery-ui.js [36m304 [0m0.606 ms - -[0m
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss5
+DB_USER=root
+DB_PASS=Ibirapuera!
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=OTHER
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=NO
+SWEEP_TIME=0 10 03 * * 0-6
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila 80
+EMAIL_FROMADDR=admin@mobss.com
+
+here is the sweep time parm 0 10 03 * * 0-6
+Listening on 3000
+App listening on port 443!
+VERSION=5.5.0
+DB_HOST=127.0.0.1
+DB_NAME=mobss5
+DB_USER=root
+DB_PASS=Ibirapuera!
+NODE_ENV=development
+CC_SSL=YES
+PORT=3000
+INFILE_DISABLED=NO
+LOCAL_INFILE=ON
+EXPORT_SOURCE=OTHER
+SWEEP_FILE=C:\Users\bligh\Dropbox\test_files\AMAG_CRLF.txt
+PICTURE_DIR=C:\tmp\photos\
+SWEEP_SCHED=ON
+SWEEP_SCOPE=NO
+SWEEP_TIME=0 10 03 * * 0-6
+MUSTER=ON
+LAT=34.0259013
+LNG=-118.375521
+CERT_NAME=orangefoot
+CERT_PASSPHRASE="O7F!"
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=admin@mobss.com
+EMAIL_PASS=camila 80
+EMAIL_FROMADDR=admin@mobss.com
+
+here is the sweep time parm 0 10 03 * * 0-6
+Listening on 3000
+App listening on port 443!

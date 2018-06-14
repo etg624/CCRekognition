@@ -1,0 +1,16 @@
+FirstName,YES
+LastName,YES
+InTIme,YES
+OutTIme,YES
+iClassNumber,YES
+AttendDate,YES
+InSeconds,NO
+OutSeconds,NO
+EmpID,YES
+MobSSOperator,YES
+EventID,YES
+Email,YES
+Identifier1,YES
+ReportPrefix,Attendance Report
+DeviceAuthCode,YES
+CheckInType,YES

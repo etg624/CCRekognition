@@ -1,0 +1,8 @@
+2017-10-24 10:02:12 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\service.js --log "Command Center 2 wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 10:02:12 - Started 36856
+2017-10-24 10:02:41 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\service.js --log "Command Center 2 wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 10:02:41 - Started 55824
+2017-10-24 10:04:16 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\service.js --log "Command Center 2 wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 10:04:16 - Started 41072
+2017-10-24 10:04:36 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js --file C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\service.js --log "Command Center 2 wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 10:04:36 - Started 26484

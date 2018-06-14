@@ -1,0 +1,26 @@
+<service>
+	<id>commandcenter.exe</id>
+	<name>Command Center</name>
+	<description>Mobile Security Solutions Command Center</description>
+	<executable>C:\Program Files\nodejs\node.exe</executable>
+	<logmode>rotate</logmode>
+	<argument>--harmony</argument>
+	<argument>--max_old_space_size=4096</argument>
+	<argument>C:\Users\bligh\AppData\Roaming\npm\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master\app.js</argument>
+	<argument>--log</argument>
+	<argument>Command Center wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<stoptimeout>30sec</stoptimeout>
+	<workingdirectory>C:\Users\bligh\Dropbox\5.2.2-master\5.2.2-master</workingdirectory>
+</service>

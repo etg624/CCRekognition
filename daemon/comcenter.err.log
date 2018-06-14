@@ -1,0 +1,105 @@
+error doing the modularized connect Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+    at Handshake.Sequence._packetToError (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Handshake.ErrorPacket (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\sequences\Handshake.js:103:18)
+    at Protocol._parsePacket (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\Parser.js:75:12)
+    at Protocol.write (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at TCP.onread (net.js:547:20)
+    --------------------
+    at Protocol._enqueue (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at Protocol.handshake (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\protocol\Protocol.js:52:41)
+    at Connection.connect (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\mysql\lib\Connection.js:130:18)
+    at Object.module.exports.createConnection (C:\Users\psb\Dropbox\CC550_10302017-master\models\db.js:18:14)
+    at Object.module.exports.authenticateUser (C:\Users\psb\Dropbox\CC550_10302017-master\models\user.js:65:5)
+    at exports.home (C:\Users\psb\Dropbox\CC550_10302017-master\controllers\cc.js:36:14)
+    at Layer.handle [as handle_request] (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\psb\Dropbox\CC550_10302017-master\node_modules\express\lib\router\layer.js:95:5)
+Could not list the picture directory. { Error: ENOENT: no such file or directory, scandir 'C:\tmp\photos'
+    at Error (native)
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: 'C:\\tmp\\photos' }
+Could not list the picture directory. { Error: ENOENT: no such file or directory, scandir 'C:\tmp\photos'
+    at Error (native)
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: 'C:\\tmp\\photos' }
+Could not list the picture directory. { Error: ENOENT: no such file or directory, scandir 'C:\tmp\photos'
+    at Error (native)
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: 'C:\\tmp\\photos' }
+Could not list the picture directory. { Error: ENOENT: no such file or directory, scandir 'C:\tmp\photos'
+    at Error (native)
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: 'C:\\tmp\\photos' }
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::3000
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1262:14)
+    at listen (net.js:1298:10)
+    at Server.listen (net.js:1394:5)
+    at Object.<anonymous> (C:\Users\psb\Dropbox\CC550_10302017-master\app.js:169:18)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::3000
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1262:14)
+    at listen (net.js:1298:10)
+    at Server.listen (net.js:1394:5)
+    at Object.<anonymous> (C:\Users\psb\Dropbox\CC550_10302017-master\app.js:169:18)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::3000
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1262:14)
+    at listen (net.js:1298:10)
+    at Server.listen (net.js:1394:5)
+    at Object.<anonymous> (C:\Users\psb\Dropbox\CC550_10302017-master\app.js:169:18)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js:177
+    child.send('shutdown');
+         ^
+
+TypeError: Cannot read property 'send' of null
+    at process.killkid (C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js:177:10)
+    at emitOne (events.js:96:13)
+    at process.emit (events.js:188:7)
+    at process.exit (internal/process.js:166:15)
+    at monitor (C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js:99:17)
+    at ChildProcess.<anonymous> (C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js:170:5)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:191:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:219:12)

@@ -1,0 +1,16 @@
+2017-11-08 10:32:07 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file C:\Users\psb\Dropbox\5.2.2-master\5.2.2-master\app.js --log "ccfivefive wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-11-08 10:32:07 - Started 7176
+2017-11-08 10:35:26 - Stopping ccfivefive.exe
+2017-11-08 10:35:26 - ProcessKill 7176
+2017-11-08 10:35:26 - Found child process: 11792 Name: conhost.exe
+2017-11-08 10:35:26 - Found child process: 2316 Name: node.exe
+2017-11-08 10:35:26 - Stopping process 11792
+2017-11-08 10:35:26 - Send SIGINT 11792
+2017-11-08 10:35:26 - SIGINT to 11792 failed - Killing as fallback
+2017-11-08 10:35:26 - Stopping process 2316
+2017-11-08 10:35:26 - Send SIGINT 2316
+2017-11-08 10:35:26 - SIGINT to 2316 failed - Killing as fallback
+2017-11-08 10:35:26 - Stopping process 7176
+2017-11-08 10:35:26 - Send SIGINT 7176
+2017-11-08 10:35:26 - SIGINT to 7176 failed - Killing as fallback
+2017-11-08 10:35:26 - Finished ccfivefive.exe

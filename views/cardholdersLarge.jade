@@ -1,0 +1,50 @@
+include mixins
+extends layout
+block content   
+
+            include navbar
+
+            
+            h3 List of all cardholders
+            h5 Use Ctrl-F to search list
+            br
+
+            div
+                table#pickle.table.table-hover.table-striped.table-bordered
+                    thead
+                        tr.warning
+                            th
+                            th Last Name
+                            th First Name
+                            th Cardnumber
+                            th Employee Id
+                            th Email
+                            th Title
+                            th Image File
+                           
+                    tbody
+                        -each result in results
+                            tr
+                                    td
+                                        a(href="/badgeDetail/#{result.iClassNumber}") Badge Detail
+                                    td=result.LastName
+                                    td=result.FirstName
+                                    td=result.iClassNumber
+                                    td=result.EmpID
+                                    td=result.EmailAddr
+                                    td=result.Title
+                                    td=result.imageName
+
+                
+                
+
+
+ 
+        
+    
+ 
+
+
+
+
+    

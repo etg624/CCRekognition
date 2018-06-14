@@ -1,0 +1,70 @@
+//###### Thu Nov 23 06:45:29 PST 2017.  EmpID field to screen.
+//###### Fri Dec 06 06:45:29 PST 2017.  Added download report button.
+//###### Fri Mar 06 06:45:29 PST 2018.  Added Attend Date to the display list
+//###### Fri Apr 26 06:45:29 PST 2018.  Added device name to display list
+//###### Sat Apr 27 11:44:28 PST 2018.  Descending order on In Time
+//###### Sat May 01 11:44:28 PST 2018 Download button and Success message removed
+
+
+
+include mixins
+extends layout
+block content   
+
+        include navbar
+
+        form(method='post') 
+            .well
+                h4 Attendance for event ##{eventID} &nbsp -- &nbsp#{eventName}
+                h5 [#{eventTempID}]
+        
+            div
+                table#pickle.table.table-hover.table-striped.table-bordered
+                    thead
+                        tr
+                            th First Name
+                            th Last Name
+                            th Badge ID
+                            th Employee ID
+                            th Attend Date
+                            th In Time
+                            th Out Time
+                            th Device
+                            th Check In Type
+                            
+                    tbody
+                        -each result in results
+                            tr
+                                    td=result.FirstName
+                                    td=result.LastName
+                                    td=result.iClassNumber
+                                    td=result.EmpID
+                                    td=result.AttendDate
+                                    td=result.InTIme
+                                    td=result.OutTIme
+                                    td=result.DeviceAuthCodeDesc
+                                    td=result.CheckInTypeDesc
+
+                                    
+                script.
+                    $(document).ready(function() {
+                    $('#pickle').DataTable({
+                        "order": [[ 4, "desc" ], [5, 'desc']]
+                    });
+                    });
+                script.
+                    $(document).ready(function() {
+                    $('#pickle tr').click(function() {
+                    var href = $(this).find("a").attr("href");
+                        if(href) {
+                            window.location = href;
+                        }
+                    });});
+
+            br
+            
+            .row
+                .col-md-4.col-sm-6.col-xs-12
+                    p.text-danger #{sess.rptError}
+                    button.btn.btn-lg.btn-primary(type="submit") Generate report now
+               

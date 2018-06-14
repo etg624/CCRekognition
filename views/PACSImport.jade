@@ -1,0 +1,61 @@
+include mixins
+extends layout
+block content 
+            include navbar
+            
+            h3 Sync with PACS
+            br
+            form.form-horizontal(method='post')
+                fieldset
+                
+                    .form-group
+                        label.col-lg-2.control-label(for='select') Selects      
+                        .col-lg-10
+                            select#select.form-control
+                                option Lenel
+                                |           
+                                option Honeywell
+                                |           
+                                option Johnson Controls P2000
+                                |           
+                                option Gallagher
+                                |           
+                                option Other
+
+                    .form-group
+                        label.col-lg-2.control-label(for='inputEmail') Endpoint
+                        |       
+                        .col-lg-10
+                            input#inputEmail.form-control(type='text')
+                
+                    .form-group
+                        label.col-lg-2.control-label(for='inputEmail') User
+                        |       
+                        .col-lg-10
+                            input#inputEmail.form-control(type='text')
+                    |     
+                    .form-group
+                        label.col-lg-2.control-label(for='inputPassword') Password
+                        |       
+                        .col-lg-10
+                            input#inputPassword.form-control(type='password', placeholder='Password')
+                            |         
+                            .checkbox
+                                label
+                                input(type='checkbox')
+                                |  SSL
+                    
+                    
+                    |     
+                    .form-group
+                        .col-lg-10.col-lg-offset-2        
+                        button.btn.btn-primary(type='submit') Sync Now
+
+
+
+                h5(style="color: #CC3300;") #{sess.error}
+                p.text-success #{sess.success}
+                
+                include footer
+
+

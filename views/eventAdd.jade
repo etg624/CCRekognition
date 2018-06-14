@@ -1,0 +1,79 @@
+// ###### Wed Oct 18 06:48:43 PDT 2017 -- Sponsor name now a required field.  Supports the Event Control User Type
+// ###### Sat Dec 9 14:05:25 PST 2017 -- Event Type enabled/disabled flag
+include mixins
+extends layout
+block content   
+
+            include navbar
+
+           
+            div
+                form.form-horizontal(method='post')
+                    fieldset
+                        legend Add#{eventType} event
+                        .form-group
+                            label.col-lg-2.control-label(for='inputEmail') Event name
+                            .col-lg-10
+                                input#inputEmail.form-control(type='text', placeholder='', name='eventName', required='')
+                        .form-group
+                            label.col-lg-2.control-label(for='inputPassword') Event date
+                            .col-lg-10
+                                input#datepicker.form-control(type='text',name='eventDate', required='')  
+                            label.col-lg-2.control-label(for='inputPassword') Event time
+                            .col-lg-10
+                                input#timepicker.form-control(type='text', name='eventTime', required='')
+                            label.col-lg-2.control-label(for='inputPassword') Location
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', placeholder='', name='eventLocationName')
+                            label.col-lg-2.control-label(for='inputPassword') Sponsor name
+                            .col-lg-10
+                                input#inputPassword.form-control(type='text', name='eventSponsorName', required='')
+                        .form-group
+                          label.col-lg-2.control-label(for='select') Duration
+                          .col-lg-10
+                            select#selecttime.form-control(name='duration')
+                              option 30 minutes
+                              option 1 hour
+                              option 90 minutes
+                              option 2 hours
+                              option 3 hours
+                              option 4 hours
+                              option All day
+                                
+                        .form-group
+                            label.col-lg-2.control-label(for='textArea') Comments
+                            .col-lg-10
+                                textarea#textArea.form-control(rows='3', name='comments')
+                       
+                      
+                        .form-group
+                          if eventTypeEnabled == 'YES'
+                            label.col-lg-2.control-label(for='select') Event type
+                            .col-lg-10
+                                select.form-control(multiple='', name='eventType')
+                                    option Meeting
+                                    option Training
+                                    option Enrollment
+                                    option Sales event
+                                    option Assembly
+                        
+                        .form-group
+                          .col-lg-10.col-lg-offset-2
+                            //-feb--dont need cancel button as could just use browser back button
+                            //-button.btn.btn-default(type='reset') Cancel
+                            button.btn.btn-primary.btn-lg(type='submit') Next
+                       
+                        link(rel='stylesheet', href='/javascripts/jquery-ui.css')         
+                        link(rel='stylesheet', href='/javascripts/jquery.timepicker.css')
+                        
+                        script(src='/javascripts/jquery.timepicker.min.js')
+                        script.
+                          $( function() {
+                          $( "#timepicker" ).timepicker({timeFormat : "H:i:s"});
+                          } );
+
+                        script(src='/javascripts/jquery-ui.js')
+                        script.
+                          $( function() {
+                          $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
+                          } );

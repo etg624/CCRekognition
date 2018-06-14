@@ -1,0 +1,66 @@
+2017-11-09 16:08:40 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file C:\Users\psb\Dropbox\CC550_10302017-master\app.js --log "comcenter wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-11-09 16:08:41 - Started 5636
+2017-11-09 16:14:10 - Stopping comcenter.exe
+2017-11-09 16:14:10 - ProcessKill 5636
+2017-11-09 16:14:10 - Found child process: 9904 Name: conhost.exe
+2017-11-09 16:14:10 - Found child process: 13660 Name: node.exe
+2017-11-09 16:14:10 - Stopping process 9904
+2017-11-09 16:14:10 - Send SIGINT 9904
+2017-11-09 16:14:10 - SIGINT to 9904 failed - Killing as fallback
+2017-11-09 16:14:10 - Stopping process 13660
+2017-11-09 16:14:10 - Send SIGINT 13660
+2017-11-09 16:14:10 - SIGINT to 13660 failed - Killing as fallback
+2017-11-09 16:14:10 - Stopping process 5636
+2017-11-09 16:14:10 - Send SIGINT 5636
+2017-11-09 16:14:10 - SIGINT to 5636 failed - Killing as fallback
+2017-11-09 16:14:10 - Finished comcenter.exe
+2017-11-09 16:14:11 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file C:\Users\psb\Dropbox\CC550_10302017-master\app.js --log "comcenter wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-11-09 16:14:11 - Started 4084
+2017-11-11 13:37:03 - Stopping comcenter.exe
+2017-11-11 13:37:03 - ProcessKill 4084
+2017-11-11 13:37:03 - Found child process: 10096 Name: conhost.exe
+2017-11-11 13:37:03 - Found child process: 4828 Name: node.exe
+2017-11-11 13:37:03 - Stopping process 10096
+2017-11-11 13:37:03 - Send SIGINT 10096
+2017-11-11 13:37:03 - SIGINT to 10096 failed - Killing as fallback
+2017-11-11 13:37:03 - Stopping process 4828
+2017-11-11 13:37:03 - Send SIGINT 4828
+2017-11-11 13:37:03 - SIGINT to 4828 failed - Killing as fallback
+2017-11-11 13:37:03 - Stopping process 4084
+2017-11-11 13:37:03 - Send SIGINT 4084
+2017-11-11 13:37:03 - SIGINT to 4084 failed - Killing as fallback
+2017-11-11 13:37:03 - Finished comcenter.exe
+2017-11-15 06:14:30 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file C:\Users\psb\Dropbox\CC550_10302017-master\app.js --log "comcenter wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-11-15 06:14:34 - Started 6632
+2017-11-16 12:58:40 - Stopping comcenter.exe
+2017-11-16 12:58:40 - ProcessKill 6632
+2017-11-16 12:58:40 - Found child process: 6784 Name: conhost.exe
+2017-11-16 12:58:40 - Found child process: 6208 Name: node.exe
+2017-11-16 12:58:40 - Stopping process 6784
+2017-11-16 12:58:40 - Send SIGINT 6784
+2017-11-16 12:58:40 - SIGINT to 6784 failed - Killing as fallback
+2017-11-16 12:58:40 - Stopping process 6208
+2017-11-16 12:58:40 - Send SIGINT 6208
+2017-11-16 12:58:40 - SIGINT to 6208 failed - Killing as fallback
+2017-11-16 12:58:40 - Stopping process 6632
+2017-11-16 12:58:40 - Send SIGINT 6632
+2017-11-16 12:58:40 - SIGINT to 6632 failed - Killing as fallback
+2017-11-16 12:58:40 - Finished comcenter.exe
+2017-11-16 18:07:12 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file C:\Users\psb\Dropbox\CC550_10302017-master\app.js --log "comcenter wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-11-16 18:07:13 - Started 5944
+2017-11-16 19:30:53 - Stopping comcenter.exe
+2017-11-16 19:30:53 - ProcessKill 5944
+2017-11-16 19:30:53 - Found child process: 5976 Name: conhost.exe
+2017-11-16 19:30:53 - Found child process: 7624 Name: node.exe
+2017-11-16 19:30:53 - Stopping process 5976
+2017-11-16 19:30:53 - Send SIGINT 5976
+2017-11-16 19:30:53 - SIGINT to 5976 failed - Killing as fallback
+2017-11-16 19:30:54 - Stopping process 7624
+2017-11-16 19:30:54 - Send SIGINT 7624
+2017-11-16 19:30:54 - SIGINT to 7624 failed - Killing as fallback
+2017-11-16 19:30:54 - Stopping process 5944
+2017-11-16 19:30:54 - Send SIGINT 5944
+2017-11-16 19:30:54 - SIGINT to 5944 failed - Killing as fallback
+2017-11-16 19:30:54 - Finished comcenter.exe
+2017-11-21 06:23:56 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\psb\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file C:\Users\psb\Dropbox\CC550_10302017-master\app.js --log "comcenter wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-11-21 06:23:56 - Started 5264
