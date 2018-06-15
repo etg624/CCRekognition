@@ -31,15 +31,19 @@ Create table AttendanceShadow like Attendance;
 alter table attendanceshadow add column DeviceAuthCode varchar(40);
 alter table attendanceShadow add column CheckinType varchar(4);
 alter table attendanceshadow change EventName EventName VARCHAR(65);
+alter table attendance change EmpID EmpID VARCHAR(40);
+alter table attendance change MobSSOperator MobSSOperator VARCHAR(40);
 
 Alter table events add TempID varchar(20);
 Alter table events add InvitationListID int(11);
 
 alter table events change EventName EventName VARCHAR(65);
-alter table events change Longitude Longitude float(10,6);
-alter table events change Latitude Latitude float(10,6);
 update events set latitude=0;
 update events set longitude=0;
+alter table events change Longitude Longitude float(10,6);
+alter table events change Latitude Latitude float(10,6);
+alter table events add column EventEndProcessed varchar(4);
+update Events set EventEndProcessed="";
 
 alter table deviceheader add column name varchar(100);
 

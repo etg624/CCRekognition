@@ -92,7 +92,7 @@ exports.createEventRecord = function(connection, data, callback) {
 exports.getAllEventsEndedSinceLastSweep = function(connection, callback) {
   
   var currentDateTime = datetime.syncCurrentDateTimeforDB()
-  var oneMonthAgoDateTime = datetime.syncPriorDateTimeforDB(30)
+  var oneMonthAgoDateTime = datetime.syncPriorDateTimeforDB(7)
   console.log("Current date time :" +currentDateTime)
   console.log("Prior date time :" +oneMonthAgoDateTime)
 
