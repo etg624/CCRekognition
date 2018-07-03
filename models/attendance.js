@@ -17,7 +17,6 @@ var db = require('./db');
 //###### Sat Apr 26 11:36:54 EST 2018 - Added check in type (1=credential, 2=manual, 3=SMS)
 //###### Sat Apr 26 11:36:54 EST 2018 - Pad InTime with a 0 for times, enabling proper sort
 
-
 exports.createAttendanceRecord = function(connection, data, callback) {
 
 //  +---------------+-------------+------+-----+---------+-------+
@@ -150,3 +149,46 @@ var buildAttendanceRecordQuery = (function() {
 }; //end of handler
 
 
+
+/**
+  ================================================================================================
+                                        Common functions
+  ================================================================================================ 
+*/
+function appendAttendanceToEventArray ( eventArray, attendanceArray ) {  
+
+  for (i=0 ; i < eventArray.length  ; i++){
+    for (j=0 ; j < attendanceArray.length  ; j++){
+      if (attendanceArray[j].eventID == eventArray[i].EventID){
+        eventArray[i].count = attendanceArray[j].count
+      }
+    }
+  }
+  var eventArrayWithAttendance = eventArray
+  return eventArrayWithAttendance
+};
+
+/**
+================================================================================================ 
+*/ 
+
+exports.addAttendanceCountToEventList = function(connection, arrayOfEvents, callback) {
+
+  var strSQL = "select count(*) as count, eventID from attendance group by eventID;";
+
+  var query = connection.query(strSQL, function(err, arrayOfAttendanceCounts) {              
+    if (err) {
+      console.log("addAttendanceCountToEventList: count query error."+err)
+      callback(err, null)
+
+      
+    } else {    
+      
+      var eventsWithAttendanceCounts =[]  
+      eventsWithAttendanceCounts = appendAttendanceToEventArray (arrayOfEvents, arrayOfAttendanceCounts)
+      callback(null, eventsWithAttendanceCounts)
+
+    }
+  })
+
+}

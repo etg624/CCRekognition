@@ -1,66 +1,105 @@
-//######
 //###### Sun Dec 31 14:12:19 PDT 2017  New module for people API
 //###### Wed Jan 3 09:56:35 PST 2018 Added new route for outside callers using JSON web tokens
 //###### Fri Jan 5 11:05:02 PST 2018  THIS CONTROLLER 
+//###### Sun Jul 1 21:32:09 PDT 2018 Support for high volume processing (retrieval in chunks)
 var mysql = require('mysql');
 var path = require( 'path' );
 var db = require('../models/db');
 var jwt = require('jsonwebtoken');
 
 
-
-////////////////////////////////////////////////////////////////////////////
-//  API to access People data for PRIVATE (sweep/app) callers
-//////////////////////////////////////////////////////////////////////////////
+/**
+================================================================================================
+                                     Objective of this module
+                                     
+                API to access People table data for PRIVATE (sweep/app) callers
+================================================================================================ 
+*/
 exports.getPeople = function(req, res) {
   sess=req.session;
   sess.success = null;
   sess.error = null;
   
+  //Make sure the api call has a valid password
+  console.log ("People API:  Has been called with... "+JSON.stringify(req.body))
+  var pass = req.body.pass
 
-//Make sure the api call has a valid password
-console.log ("here is the body POST API "+JSON.stringify(req.body))
-var pass = req.body.pass
-console.log("the password sent is "+pass)
+  // Chunk count won't be part of the call for older versions of the app
+  var retrievalChunkCount = 0
+  if (typeof req.body.ChunkCount == 'undefined'){
+    console.log ("People API : ChunkCount is undefined, assuming 0")
+  }else{
+    retrievalChunkCount= req.body.ChunkCount
+  }
+  //
 
-//Check whether requestis authorized
-if (pass != "agpbrtdk") {
-  res.status (400) // When called from the App, this goes into "the result" -- tsneterr: HTTP response code 400 returned from server
-  res.send ('Unauthorised request') // When called from the App, this goes into tData and urlResponse
-  // or res.status(400).json({error: 'message'})
-  
-}else{
+  const maxNumberOfRecordsToRetrieve = 25000
 
-  db.createConnection(function(err,reslt){  
-    if (err) {
-      console.log('Error while performing common connect query: ' + err);
-      //callback(err, null);
+	/**
+   ================================================================================================
+                                          Common functions
+   ================================================================================================ 
+   */
+  function getRetrievalStartRecord ( retrievalChunkCount ) {  
+
+    var recordToStartRetrieval = 0
+    var retrievalChunkCountInteger = parseInt(retrievalChunkCount, 10);
+
+    if (retrievalChunkCountInteger !=0){
+      recordToStartRetrieval = (retrievalChunkCountInteger-1)*maxNumberOfRecordsToRetrieve
     }else{
-      //process the i/o after successful connect.  Connection object returned in callback
-      var connection = reslt;
-      console.log('here is the connnection '+reslt.threadId);
+      recordToStartRetrieval = 0 // This will be the case with older versions of the app
+    }
+    return recordToStartRetrieval
+	};
+ 
+  /**
+  ================================================================================================ 
+  */ 
+  
+  /**
+  ================================================================================================
+                                          Execution
+  ================================================================================================ 
+  */ 
+  //Check whether requestis authorized
+  if (pass != "agpbrtdk") {
+    res.status (400) // When called from the App, this goes into "the result" -- tsneterr: HTTP response code 400 returned from server
+    res.send ('Unauthorised request') // When called from the App, this goes into tData and urlResponse
+    // or res.status(400).json({error: 'message'})
+    
+  }else{
+
+    db.createConnection(function(err,reslt){  
+      if (err) {
+        console.log('People API: Error while performing common connect query: ' + err);
+        //callback(err, null);
+      }else{
+        //process the i/o after successful connect.  Connection object returned in callback
+        var connection = reslt;
+
+        var beginRecord = getRetrievalStartRecord(retrievalChunkCount)
+
+        console.log("People API: Record to start retrieval: "+beginRecord)
+
+        var _sqlQ = "SELECT * FROM people LIMIT "+beginRecord+","+maxNumberOfRecordsToRetrieve;
 
 
-      var _sqlQ = "SELECT * FROM people";
-      connection.query(_sqlQ, function(err, results) {
-        //connection.release();
-        if(err) { console.log('Internal API error:  '+err); res.json(results); connection.end(); return; }
-      
-        connection.end();
-
-        //TypeError: First argument must be a string or Buffer
-        //res.end (results);
-
-        //Returns a JSON file (was able to open up in notepad after brower asked what i wanteed to do with it)
-        //res.send (results);
+        connection.query(_sqlQ, function(err, results) {
+          //connection.release();
+          if(err) { console.log('People API: Internal API error:  '+err); res.json(results); connection.end(); return; }
         
-        //Returns a JSON file (was able to open up in notepad after brower asked what i wanteed to do with it)
-        res.json (results);
-        
-      });
-    } 
-  });
-}
+          connection.end();
+
+          res.json (results);
+          
+        });
+      } 
+    });
+  }
+  /**
+  ================================================================================================ 
+  */ 
 
 }
 
@@ -76,9 +115,9 @@ exports.getPeopleCount = function(req, res) {
   
 
   //Make sure the api call has a valid password
-  console.log ("here is the body POST API "+JSON.stringify(req.body))
+  console.log ("Called the get people COUNT API with... "+JSON.stringify(req.body))
   var pass = req.body.pass
-  console.log("the password sent is "+pass)
+
 
   //Check whether requestis authorized
   if (pass != "agpbrtdk") {

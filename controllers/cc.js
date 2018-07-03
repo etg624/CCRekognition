@@ -1,6 +1,4 @@
-///////////////////////////////////////////////////////////////////////////////////////////////
-//  This is the main controller, handling the home, login/logout, About and Dashboard routes //
-///////////////////////////////////////////////////////////////////////////////////////////////
+//###### Mon Jul 2 08:38:48 PDT 2018 Add number of photos to dashboard
 var mysql = require('mysql');
 var fs  = require('fs');
 var csvParser = require('csv-parse');
@@ -12,8 +10,20 @@ var user = require('../models/user');
 var emailController = require('./emailController');
 
 
+/**
+================================================================================================
+                                     Objective of this module
+                                     
+    This is the main controller, handling the home, login/logout, About and Dashboard routes
+================================================================================================ 
+*/
 
 
+/**
+  ================================================================================================
+                                        Display Login Page
+  ================================================================================================ 
+*/
 exports.home = function(req, res){
  	// initiatie the session and check the Id in the console
 	sess = req.session;
@@ -48,8 +58,11 @@ exports.home = function(req, res){
 }; // feb--end of exports home
 
 
-
-// handler for form submitted from homepage
+/**
+  ================================================================================================
+                                Process login submission
+  ================================================================================================ 
+*/
 exports.home_post_handler = function(req, res) {
     
 	//feb--if no username input, send back to home page
@@ -68,8 +81,13 @@ exports.home_post_handler = function(req, res) {
 
 }; 
 
-//feb--changes to following handlers to incorporate new express 4 session handling, as above
-// handler for displaying the dashboard
+
+
+/**
+  ================================================================================================
+                                     Display Dashboard
+  ================================================================================================ 
+*/
 exports.dashboardHome = function(req, res) {
 	sess = req.session;
   sess.time = '';
@@ -179,10 +197,22 @@ exports.dashboardHome = function(req, res) {
                                      */
                                     devices.getBadConnections(function(err,reslt8){  
                                       if (err) {
-                                        console.log('Error while performing bad connections query: ' + err);
+                                        console.log('Dashboard: Error while performing bad connections query: ' + err);
                                       }else{
-                                      res.render('dashboard', { title: 'Command Center - Dashboard', username: req.session.username, results : result, resultAs : resultA, metaTime : metaTime, rowCount : rowCount, totalDevices, lastMuster, siteCount, rst : rst, reslt8s : reslt8});
 
+                                        const photoDirectory = "./public/photosforreader"
+
+                                        fs.readdir(photoDirectory, function(err,arrayOfPhotoNames){  
+                                          if (err) {
+                                            console.log('Dashboard: Error while performing bad connections query: ' + err);
+                                          }else{
+
+                                            var numberOfCardholderPhotos = arrayOfPhotoNames.length
+
+
+                                            res.render('dashboard', { title: 'Command Center - Dashboard', username: req.session.username, results : result, resultAs : resultA, metaTime : metaTime, rowCount : rowCount, totalDevices, lastMuster, siteCount, rst : rst, reslt8s : reslt8, numberOfCardholderPhotos});
+                                          }
+                                        })
                                       }
                                     })
 

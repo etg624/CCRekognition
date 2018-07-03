@@ -229,6 +229,24 @@ block content
                                 label
                                   input#optionsRadios4(name='eventTypeRadios', type='radio', checked=eventTypeEnabled == 'NO', value='NO')
                                   |            NO
+                            
+                            label.col-lg-2.control-label Event end processing
+                            .col-lg-10
+                                .radio
+                                    label
+                                        input#optionsRadios30(name='eventEndRadios', type='radio', checked=eventEndProcessing == 'ON', value='ON')
+                                        |            YES
+                                .radio
+                                    label
+                                        input#optionsRadios31(name='eventEndRadios', type='radio', checked=eventEndProcessing == 'OFF', value='OFF')
+                                        |            NO
+                            label.col-lg-2.control-label(for='inputPassword') Event admin email
+                            .col-lg-10
+                                input#datepicker.form-control(type='text',name='eventAdminEmail', required='', value=eventAdminEmail)  
+                            label.col-lg-2.control-label(for='inputPassword') Event end frequency
+                            .col-lg-10
+                                input#timepicker.form-control(type='text', name='eventEndFreq', value=eventEndFreq)
+                            
                             label.col-lg-2.control-label(for='inputPassword') Card scan records to display
                             .col-lg-10
                                 input#inputPassword.form-control(type='text', name='scanLimit', value=scanLimit)

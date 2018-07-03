@@ -40,6 +40,13 @@ exports.searchForImageMatch = function(req, res) {
 
   //const image = JSON.stringify(req.file.filename)
   console.log("the IMAGE filename sent is "+JSON.stringify(req.file.filename)) 
+
+  var hostName = req.headers.host
+  console.log("the host sent is "+req.headers.host)
+  console.log("the HEADERS sent are "+JSON.stringify(req.headers))
+
+
+  
 /**
 ================================================================================================ 
 */ 
@@ -216,6 +223,260 @@ var rekognition = new AWS.Rekognition();
 
 
 }
+
+//###### Wed Jun 13 08:47:11 PDT 2018
+////////////////////////////////////////////////////////////////////////////
+//  Search collection for image match
+//////////////////////////////////////////////////////////////////////////////
+exports.searchForFaceMatch = function(req, res) {
+  
+    
+  /**
+  ================================================================================================ 
+  */ // This gets the filename but the reKog fails due to invalid encoding
+    //console.log("the IMAGE sent is "+req.file)
+    //console.log("the IMAGE STRING sent is "+JSON.stringify(req.file))
+  
+    //const image = JSON.stringify(req.file.filename)
+    //console.log("the IMAGE filename sent is "+req.body.image)
+    var imageString = req.body.image
+    console.log("The length of the image string: "+imageString.length)
+
+
+
+//** */
+// This code works converting base64 (incoming) to 'binary and then setting the buffer type of binary in the rekog call
+    // let buff = new Buffer(imageString, 'base64');  
+    // let text = buff.toString('binary');
+//** */
+
+    //var hostName = req.headers.host
+    //console.log("the host sent is "+req.headers.host)
+    console.log("the HEADERS sent are "+JSON.stringify(req.headers))
+    //console.log("the BODY sent is "+JSON.stringify(req.body))
+
+  
+
+//** */
+// This coode works for writing the incoming image to file
+// buffer = new Buffer(imageString, 'base64');
+//         console.log(imageString.length, buffer.length);
+//         fs.writeFileSync('imageM8.png', buffer, 0, buffer.length);
+//** */
+
+
+  /**
+  ================================================================================================ 
+  */ 
+  
+  /**
+  ================================================================================================
+                        read the saved file and send to recog
+  ================================================================================================ 
+  */
+  var AWS = require('aws-sdk');
+  AWS.config.update({region: 'us-west-2'}); // TODO:can also use a global config onject in same way as credentials
+  
+  var rekognition = new AWS.Rekognition();
+  
+  /**
+  ================================================================================================ 
+  */ 
+  // Read in the file, convert it to base64, store to S3
+  // var imageOnDisk = "imageM7.png"
+  // fs.readFile(imageOnDisk, function (err, data) {
+  //   if (err) { throw err; }
+
+  //   //var base64data = new Buffer(data, 'binary').toString('base64'); // accroding to stackoverflow, dont need to convert
+
+  //   var s3 = new AWS.S3();
+  //   s3.putObject({
+  //     Bucket: 'rekog-image-bucket',
+  //     Key: imageOnDisk,
+  //     //Body: base64data
+  //     Body: data
+
+  //   },  function(err, data) {
+  //     if (err) {console.log(err, err.stack); // an error occurred
+  //     }else{
+  //       console.log("success: "+ JSON.stringify(data)); 
+
+        //* This operation searches for faces in a Rekognition collection that match the largest face in an S3 bucket stored image. */
+        var params = {
+          CollectionId: "myTestImages", 
+          FaceMatchThreshold: 70, 
+          Image: {
+            Bytes: new Buffer(imageString, 'base64')
+            
+          // S3Object: {
+          //   Bucket: "rekog-image-bucket", 
+          //   Name: imageOnDisk
+          // }
+          }, 
+          MaxFaces: 5
+        };
+        rekognition.searchFacesByImage(params, function(err, data) {
+          if (err) console.log(err, err.stack); // an error occurred
+          else     
+          console.log(JSON.stringify(data));  
+          console.log("faces length " + data.FaceMatches.length)
+
+          if (data.FaceMatches.length == 0){
+            let json = {
+              Matches: data.FaceMatches.length,
+              BestMatch: "None",
+              Similarity: '0'
+            }
+            res.status(200);
+            res.send(json);
+          }else{
+            let json = {
+              Matches: data.FaceMatches.length,
+              BestMatch: data.FaceMatches[0].Face.ExternalImageId,
+              Similarity: data.FaceMatches[0].Similarity
+            }
+            res.status(200);
+            res.send(json);
+
+            console.log(JSON.stringify("Match confidence Level: " + data.FaceMatches[0].Similarity))
+            console.log(JSON.stringify("Matched image ID: " + data.FaceMatches[0].Face.ExternalImageId))         // successful response
+           
+          }
+          
+        });
+
+  
+
+
+
+      
+      // var params = {
+      //   CollectionId: "myTestImages", 
+      //   FaceMatchThreshold: 80, 
+      //   Image: {
+      //     Bytes: new Buffer(req.file, 'binary')
+      //     /* Strings will be Base-64 encoded on your behalf */
+  
+      //     //S3Object: {
+      //       //Bucket: "rekog-image-bucket", 
+      //       //Name: "IMG_2295.jpg"
+      //     //}
+      //   }, 
+      //   MaxFaces: 5
+      // };
+  
+      // rekognition.searchFacesByImage(params, function(err, data) {
+      //   if (err) console.log(err, err.stack); // an error occurred
+      //   else     console.log(JSON.stringify(data));  res.status(200) ; res.send("Match found.")     // successful response
+      //   /*
+      //   data = {
+      //     FaceMatches: [
+      //       {
+      //       Face: {
+      //       BoundingBox: {
+      //         Height: 0.3234420120716095, 
+      //         Left: 0.3233329951763153, 
+      //         Top: 0.5, 
+      //         Width: 0.24222199618816376
+      //       }, 
+      //       Confidence: 99.99829864501953, 
+      //       FaceId: "38271d79-7bc2-5efb-b752-398a8d575b85", 
+      //       ImageId: "d5631190-d039-54e4-b267-abd22c8647c5"
+      //       }, 
+      //       Similarity: 99.97036743164062
+      //     }
+      //     ], 
+      //     SearchedFaceBoundingBox: {
+      //     Height: 0.33481481671333313, 
+      //     Left: 0.31888890266418457, 
+      //     Top: 0.4933333396911621, 
+      //     Width: 0.25
+      //     }, 
+      //     SearchedFaceConfidence: 99.9991226196289
+      //   }
+      //   */
+      // });
+  
+    
+  //* This operation searches for faces in a Rekognition collection that match the largest face in an S3 bucket stored image. */
+  // var params = {
+  //   CollectionId: "myTestImages", 
+  //   FaceMatchThreshold: 70, 
+  //   Image: {
+  //     Bytes: new Buffer("'"+imageString+"'")
+      
+    
+  //   }, 
+  //   MaxFaces: 5
+  // };
+  // rekognition.searchFacesByImage(params, function(err, data) {
+  //   if (err){ console.log(err, err.stack);// an error occurred
+  //   }else {    
+  //     console.log(JSON.stringify(data));  
+  //     console.log("faces length " + data.FaceMatches.length)
+
+  //     if (data.FaceMatches.length == 0){
+  //       let json = {
+  //         Matches: data.FaceMatches.length,
+  //         BestMatch: "None",
+  //         Similarity: '0'
+  //       }
+  //       res.status(200);
+  //       res.send(json);
+  //     }else{
+  //       let json = {
+  //         Matches: data.FaceMatches.length,
+  //         BestMatch: data.FaceMatches[0].Face.ExternalImageId,
+  //         Similarity: data.FaceMatches[0].Similarity
+  //       }
+  //       res.status(200);
+  //       res.send(json);
+
+  //       console.log(JSON.stringify("Match confidence Level: " + data.FaceMatches[0].Similarity))
+  //       console.log(JSON.stringify("Matched image ID: " + data.FaceMatches[0].Face.ExternalImageId))         // successful response
+      
+  //     }
+  //   }
+
+
+
+  //     // successful response
+  //   /*
+  //   data = {
+  //     FaceMatches: [
+  //       {
+  //       Face: {
+  //       BoundingBox: {
+  //         Height: 0.3234420120716095, 
+  //         Left: 0.3233329951763153, 
+  //         Top: 0.5, 
+  //         Width: 0.24222199618816376
+  //       }, 
+  //       Confidence: 99.99829864501953, 
+  //       FaceId: "38271d79-7bc2-5efb-b752-398a8d575b85", 
+  //       ImageId: "d5631190-d039-54e4-b267-abd22c8647c5"
+  //       }, 
+  //       Similarity: 99.97036743164062
+  //     }
+  //     ], 
+  //     SearchedFaceBoundingBox: {
+  //     Height: 0.33481481671333313, 
+  //     Left: 0.31888890266418457, 
+  //     Top: 0.4933333396911621, 
+  //     Width: 0.25
+  //     }, 
+  //     SearchedFaceConfidence: 99.9991226196289
+  //   }
+  //   */
+  // });
+
+  
+  
+  
+  }
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////
 //  API get one image

@@ -100,7 +100,12 @@ exports.settingsHome = function(req, res) {
      var twilioSID = process.env.TWILIO_SID;
      var twilioToken = process.env.TWILIO_TOKEN;
      var serverAddress = process.env.SERVER_ADDRESS;
-    
+
+      //###### Sat Jun 06 2018 13:58:50 Event end processing
+      var eventAdminEmail = process.env.EVENTADMIN_EMAIL;
+      var eventEndProcessing = process.env.EVENTEND_MONITOR;
+      var eventEndFreq = process.env.EVENTEND_FREQ;
+     
      
    
  /**
@@ -109,7 +114,7 @@ exports.settingsHome = function(req, res) {
 console.log('sess.userType = '+sess.userType);
 
  if (sess.userType == '2'){
-    res.render('settings', { title: 'Command Center' + name, username: sess.username, version, env, dbHost, dbName, dbUser, dbPass, ccSSL, port, infileDis, infileLocal, exportSource, pacsHost, pacsUser, pacsPassword, certName, certPass, sweep, sweepDir, sweepScope, pictureDir, sweepTime, muster, eventTypeEnabled, scanLimit, relayHost, latitude, longitude, emailHost, emailPort, emailSecure, emailUser, emailPass, emailFrom, emergencyTitle, emergencyMessage, twilioSID, twilioToken, serverAddress });
+    res.render('settings', { title: 'Command Center' + name, username: sess.username, version, env, dbHost, dbName, dbUser, dbPass, ccSSL, port, infileDis, infileLocal, exportSource, pacsHost, pacsUser, pacsPassword, certName, certPass, sweep, sweepDir, sweepScope, pictureDir, sweepTime, muster, eventTypeEnabled, scanLimit, relayHost, latitude, longitude, emailHost, emailPort, emailSecure, emailUser, emailPass, emailFrom, emergencyTitle, emergencyMessage, twilioSID, twilioToken, serverAddress, eventAdminEmail, eventEndProcessing, eventEndFreq });
     } else {
     res.render('Unauthorized', { title: 'Command Center'});
     }
@@ -134,7 +139,8 @@ exports.settingsUpdate = function(req, res) {
     //###### Sat Feb 05 2018 13:58:50 PST alternative default file
     //###### Sat May 02 2018 13:58:50 PST Title and message for emails to Unaccounted during muster
     //###### Sat Jun 06 2018 13:58:50 SMS related variables
-
+    //###### Sat Jun 06 2018 13:58:50 Event End Processing
+    //###### Sun Jul 1 21:56:55 PDT 2018 Email from addr added back (had been inadvertantly deleted)
 
     
     var param_array = [{
@@ -216,6 +222,15 @@ exports.settingsUpdate = function(req, res) {
         value: 'EVENTTYPE_ENABLED='+req.body.eventTypeRadios
         },
         {
+        value: 'EVENTEND_MONITOR='+req.body.eventEndProcessing
+        },
+        {
+        value: 'EVENTADMIN_EMAIL='+req.body.eventAdminEmail
+        },
+        {
+        value: 'EVENTEND_FREQ='+req.body.eventEndFreq
+        },
+        {
         value: 'CARDSCAN_RECS_LIMIT='+req.body.scanLimit
         },
         {
@@ -238,6 +253,9 @@ exports.settingsUpdate = function(req, res) {
         },
         {
         value: 'EMAIL_PASS='+req.body.emailPass
+        },
+        {
+        value: 'EMAIL_FROMADDR='+req.body.emailFrom
         },
         {
         value: 'TWILIO_SID='+req.body.twilioSID

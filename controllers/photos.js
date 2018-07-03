@@ -226,8 +226,146 @@ exports.photoCheckProcess = function(req, res) {
  * Right now it simply builds an array of the pictures in the photosforreader directory
  * and sends them to the vies for rendering.  The view will immediately start displaying
  * photos while it continues to process the array.
+ * 
+ * 
  */
+
+
+/**
+ ================================================================================================
+                                        Common functions
+  ================================================================================================ 
+  */
+
+function createLogEntry ( param ) {  
+  fs.open('./public/reports/eventEndMonitor.log', 'a', 666, function( e, id ) {
+  fs.appendFileSync(id, param + "\r\n", null, 'utf8')
+  fs.close(id, function(){});
+  return
+});
+};
+
+
+function setUpSessionVarables ( req ) {  
+  sess=req.session;
+  sess.photoCheckError=null;
+  sess.photoCheckError1 = null; 
+  sess.empSearch = req.body.empIDSearch;  
+  return
+};
+
+
+function setUpErrorsForDisplay () {  
+  sess.photosSuccess= null;
+  sess.photosError= 'Directory does not exist or not accessible';
+  return
+};
+
+function setUpSuccessMessageForDisplay () {  
+  sess.photosSuccess= 'Photos processed successfully';
+  sess.photosError= null;
+  return
+};
+
+
+function getTheFMaxPhotosForDisplay (callback) {  
+  console.log ("getting into getMax")
+  
+  var photoArrayForDisplay = []
+  var nameAndPathOfThePhotoFile =""
+  var photosReadAndAddedToDisplayArray = 0  
+  var numberOfPhotosInSourceDirectory = 0 
+  var numberOfPhotosToReturnInDisplayArray = 0
+  
+
+  const photoSourceDirectory = "./public/photosforreader"
+  const theMaxNumberOfPhotosToDisplay = 100
+  
+  fs.readdir( photoSourceDirectory, function( err, photoFiles ) {
+    
+    if( err ) { callback (err, null) }
+
+    numberOfPhotosInSourceDirectory = photoFiles.length
+
+    if (numberOfPhotosInSourceDirectory > theMaxNumberOfPhotosToDisplay){numberOfPhotosToReturnInDisplayArray = theMaxNumberOfPhotosToDisplay} 
+    else {numberOfPhotosToReturnInDisplayArray = numberOfPhotosInSourceDirectory}
+    
+    console.log ("photofiles length"+photoFiles.length)
+
+    for (var i=0; i < numberOfPhotosToReturnInDisplayArray; i++) {
+
+      nameAndPathOfThePhotoFile = '/photosforreader/'+photoFiles[i];
+      photoArrayForDisplay.push(nameAndPathOfThePhotoFile)
+
+    }
+
+    callback (null, photoArrayForDisplay)
+    
+
+
+    
+
+    // photoFiles.forEach( function( file, index ) {
+
+    //   photosReadAndAddedToDisplayArray++
+    //   nameAndPathOfThePhotoFile = '/photosforreader/'+file;
+    //   photoArrayForDisplay.push(nameAndPathOfThePhotoFile)
+
+    //   if (photosReadAndAddedToDisplayArray == theMaxNumberOfPhotosToDisplay || photosReadAndAddedToDisplayArray == numberOfPhotosInSourceDirectory){
+    //     console.log ("getting into finish")
+    //     console.log (photoArrayForDisplay)
+        
+
+        
+    //     callback (null, photoArrayForDisplay) }
+        
+    // } );
+
+  });
+}
+
+/**
+ ================================================================================================ 
+*/ 
+
 exports.photoCheck = function(req, res) {
+
+  const callerOfThisRouteIsNotRecognized = 'undefined'
+
+  setUpSessionVarables(req)  
+  
+  console.log ("back from session variable")
+  console.log ("session variable"+sess.username)
+  
+
+
+  // don't let nameless people view the page, redirect them back to the homepage
+  if (typeof sess.username == callerOfThisRouteIsNotRecognized) {
+    res.redirect('/');
+  }else{
+    
+    getTheFMaxPhotosForDisplay (function(err,photoArrayForDisplay){ 
+      console.log ("getting back from getMax")
+      
+
+      if (err){
+
+        setUpErrorsForDisplay()
+        res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess, error: sess.photosError });
+      
+      }else{
+
+        var imageLast = ""  //TODO  what is this?
+        setUpSuccessMessageForDisplay()
+        res.render('photoCheck', { title: 'Command Center', images : photoArrayForDisplay, imageLast : imageLast});     
+      }
+        
+    })
+  } 
+}
+
+    
+exports.photoCheckOLD = function(req, res) {
   sess=req.session;
   sess.photoCheckError=null;
   sess.photoCheckError1 = null       
@@ -267,6 +405,7 @@ exports.photoCheck = function(req, res) {
                 images.push(imageFile)
                 
         } );
+
         //feb--finished looping through the directory, so process successful response
         sess.photosSuccess= 'Photos processed successfully';
         sess.photosError= null;

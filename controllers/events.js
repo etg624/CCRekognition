@@ -11,6 +11,8 @@ var writeReport = require('./writeReport');
 var emailController = require('../controllers/emailController');
 //###### Tue Apr 28 08:29:13 PDT 2017
 var ioResultFormatting = require('../controllers/ioResultFormatting');
+//###### Mon Jul 2 10:56:11 PDT 2018
+var attendance = require('../models/attendance');
 
 
 
@@ -33,13 +35,12 @@ module.exports.eventsHome = function(req, res) {
         //--to be rendered as a table in Jade
         //feb- we have user entry at this point and so setting up the credentials here
        //get a connection using the common handler in models/db.js
-        db.createConnection(function(err,reslt){  
+        db.createConnection(function(err,connectionID){  
             if (err) {
               callback(err, null);
             }else{
               //process the i/o after successful connect.  Connection object returned in callback
-              var connection = reslt;
-              console.log('here is the connnection '+reslt.threadId);
+              var connection = connectionID;
              
               //###### Tue Oct 17 08:29:13 PDT 2017
               //###### If the User type is 4 (Event Control only), only show those events where the sponsor of the event is same as user name
@@ -48,25 +49,31 @@ module.exports.eventsHome = function(req, res) {
 
               // IF THE USER IS TYPE 4 (EVENT CONTROL)
               if (sess.userType == '4'){
-              var _sqlQ = "SELECT * FROM events where EventDateTime < NOW() AND EventsType !='mustering' AND EventSponsorName='"+sess.userName+"'";
+                var _sqlQ = "SELECT * FROM events where EventDateTime < NOW() AND EventsType !='mustering' AND EventSponsorName='"+sess.userName+"'"+" ORDER BY EventDateTime DESC";
+              
               }else{
               // Every other user
-              var _sqlQ = "SELECT * FROM events where EventDateTime < NOW() AND EventsType !='mustering'";
+                var _sqlQ = "SELECT * FROM events where EventDateTime < NOW() AND EventsType !='mustering' ORDER BY EventDateTime DESC";
               }
               //######
-              console.log (_sqlQ)
-              connection.query(_sqlQ, function(err, results) {
-                //connection.release();
+              console.log(_sqlQ)
+
+              connection.query(_sqlQ, function(err, allPastEvents) {
+
                 if(err) { console.log('event query bad'+err); connection.end(); callback(true); return; }
-              //console.log("Meta query results are "+ JSON.stringify(results));
-              //console.log("Meta query results are "+ results[0].maxTime);
-              connection.end()
+
+                attendance.addAttendanceCountToEventList(connection, allPastEvents, function(err,eventListWithAttendance){  
+
+                  if(err) { console.log('Event list: attendance query bad'+err); connection.end(); callback(true); return; }
+    
+                        connection.end()
+                        
+                        res.render('events', { title: 'Command Center - Events', username: req.session.username, eventListWithAttendance });
               
-              res.render('events', { title: 'Command Center - Events', username: req.session.username, results });
+              })
               });
             }
         });
-        //res.render('cardholders', { title: 'Command Center 360 - ' });
     }
 };
 
@@ -90,13 +97,12 @@ module.exports.eventsUpComing = function(req, res) {
         //--to be rendered as a table in Jade
         //feb- we have user entry at this point and so setting up the credentials here
        //get a connection using the common handler in models/db.js
-      db.createConnection(function(err,reslt){  
+      db.createConnection(function(err,connectionID){  
           if (err) {
             callback(err, null);
           }else{
             //process the i/o after successful connect.  Connection object returned in callback
-            var connection = reslt;
-            console.log('here is the connnection '+reslt.threadId);
+            var connection = connectionID;
 
             //###### Tue Oct 17 08:29:13 PDT 2017
               //###### If the User type is 4 (Event Control only), only show those events where the sponsor of the event is same as user name
@@ -105,19 +111,19 @@ module.exports.eventsUpComing = function(req, res) {
 
               // IF THE USER IS TYPE 4 (EVENT CONTROL)
               if (sess.userType == '4'){
-              var _sqlQ = "SELECT * FROM events where EventDateTime >= CURDATE() AND EventsType !='mustering' AND EventSponsorName='"+sess.userName+"'";
+              var _sqlQ = "SELECT * FROM events where EventDateTime >= CURDATE() AND EventsType !='mustering' AND EventSponsorName='"+sess.userName+"'"+" ORDER BY EventDateTime DESC";
               }else{
               // Every other user
-              var _sqlQ = "SELECT * FROM events where EventDateTime >= CURDATE() AND EventsType !='mustering'";
+              var _sqlQ = "SELECT * FROM events where EventDateTime >= CURDATE() AND EventsType !='mustering' ORDER BY EventDateTime DESC";
             }
               //######
-
-            connection.query(_sqlQ, function(err, results) {
+              //console.log(_sqlQ)
+            connection.query(_sqlQ, function(err, allFutureEvents) {
            
              if(err) { console.log('event query bad'+err); callback(true); connection.end(); return; }
               
             connection.end();
-            res.render('eventsUpcoming', { title: 'Command Center - Upcoming Events', username: req.session.username, results });
+            res.render('eventsUpcoming', { title: 'Command Center - Upcoming Events', username: req.session.username, results:allFutureEvents });
             });
           }
       });  

@@ -1,16 +1,105 @@
-//######
 //###### Sun Dec 31 14:12:19 PDT 2017  New module for people API
-//######
+//###### Sun Jul 1 21:37:09 PDT 2018 Support for high volume processing (retrieval in chunks)
 
 var mysql = require('mysql');
 var path = require( 'path' );
 var db = require('../models/db');
 
+/**
+================================================================================================
+                                     Objective of this module
+                                     
+                API to access Emp Badge table data for PRIVATE (sweep/app) callers
+================================================================================================ 
+*/
+exports.getEmpBadge = function(req, res) {
+  
+  //Make sure the api call has a valid password
+  console.log ("EmpBadge API:  Has been called with... "+JSON.stringify(req.body))
+  var pass = req.body.pass
+
+  // Chunk count won't be part of the call for older versions of the app
+  var retrievalChunkCount = 0
+  if (typeof req.body.ChunkCount == 'undefined'){
+    console.log ("EmpBadge API : ChunkCount is undefined, assuming 0")
+  }else{
+    retrievalChunkCount= req.body.ChunkCount
+  }
+  //
+
+  const maxNumberOfRecordsToRetrieve = 25000
+
+	/**
+  ================================================================================================
+                                          Common functions
+  ================================================================================================ 
+  */
+  function getRetrievalStartRecord ( retrievalChunkCount ) {  
+
+    var recordToStartRetrieval = 0
+    var retrievalChunkCountInteger = parseInt(retrievalChunkCount, 10);
+
+    if (retrievalChunkCountInteger !=0){
+      recordToStartRetrieval = (retrievalChunkCountInteger-1)*maxNumberOfRecordsToRetrieve
+    }else{
+      recordToStartRetrieval = 0 // This will be the case with older versions of the app
+    }
+    return recordToStartRetrieval
+	};
+ 
+  /**
+  ================================================================================================ 
+  */ 
+  
+  /**
+  ================================================================================================
+                                          Execution
+  ================================================================================================ 
+  */  
+  //Check whether request is authorized
+  if (pass != "agpbrtdk") {
+    res.status (400) // When called from the App, this goes into "the result" -- tsneterr: HTTP response code 400 returned from server
+    res.send ('Unauthorised request') // When called from the App, this goes into tData and urlResponse
+    // or res.status(400).json({error: 'message'})
+    
+  }else{
+
+    db.createConnection(function(err,reslt){  
+      if (err) {
+        console.log('EmpBadge API: Error while performing common connect query: ' + err);
+        //callback(err, null);
+      }else{
+        //process the i/o after successful connect.  Connection object returned in callback
+        var connection = reslt;
+
+        var beginRecord = getRetrievalStartRecord(retrievalChunkCount)
+
+        console.log("EmpBadge API: Record to start retrieval: "+beginRecord)
+        //var _sqlQ = "SELECT * FROM people LIMIT 0,25000";
+        var _sqlQ = "SELECT * FROM empbadge LIMIT "+beginRecord+","+maxNumberOfRecordsToRetrieve;
+
+
+        connection.query(_sqlQ, function(err, results) {
+          if(err) { console.log('EmpBadge API: Internal API error:  '+err); res.json(results); connection.end(); return; }
+        
+          connection.end();
+
+          res.json (results);
+          
+        });
+      } 
+    });
+  }
+  /**
+  ================================================================================================ 
+  */ 
+}
+
 
 ////////////////////////////////////////////////////////////////////////////
 //  API to access EmpBadge data
 //////////////////////////////////////////////////////////////////////////////
-exports.getEmpBadge = function(req, res) {
+exports.getEmpBadge_OLD = function(req, res) {
   sess=req.session;
   sess.success = null;
   sess.error = null;

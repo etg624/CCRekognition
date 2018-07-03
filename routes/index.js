@@ -61,6 +61,10 @@ var images = require('../api/images')
 ////###### Fri May 16 14:21:39 PST 2018
 var imageZip = require('../api/imagezip')
 
+////###### Fri Jul 01 14:21:39 PST 2018
+var photosAPI = require('../api/photos')
+
+
 ////###### Fri May 31 14:21:39 PST 2018
 var SMSCheckInController = require('../controllers/SMSCheckInController');
 
@@ -177,12 +181,20 @@ router.post('/postEventRecords', eventsAPI.postEventRecords);
 //###### Fri Mar 9 14:22:22 PST 2018
 router.post('/getEvacCount', evacuationAPI.getEvacCount);
 
+//###### Fri Jun 28 14:22:22 PST 2018
+router.post('/getInviteeCount', inviteListsAPI.getInviteeCount);
+
+//###### Fri Jul 01 14:22:22 PST 2018
+router.post('/getNumberOfImageZipFiles', photosAPI.getZipFileCount);
+
 //###### Wed Jun 13 08:48:33 PDT 2018
 //router.post('/searchForImageMatch', images.searchForImageMatch);
 //###### Wed Jun 13 14:14:02 PDT 2018
 //-----
 router.post ('/imageRecognition/searchForImageMatch', images.searchForImageMatch);
 //-----
+//###### Wed Jun 19 14:14:02 PDT 2018
+router.post ('/searchForFaceMatch', images.searchForFaceMatch);
 
 /////////////////////////////////////////////////////////////////////
 // API for PUBLIC method callers

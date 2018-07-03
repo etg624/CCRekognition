@@ -20,9 +20,11 @@ block content
                             th Sponsor
                             th Duration
                             th Invite List
+                            th Attendance 
                             th Comments
+                            
                     tbody
-                        -each result in results
+                        -each result in eventListWithAttendance
                             tr
                                     td
                                         a(href="/eventAttendance/#{result.EventID}") Attendance |
@@ -35,6 +37,7 @@ block content
                                     td=result.EventSponsorName
                                     td=result.DurationInMins
                                     td=result.InvitationListID
+                                    td=result.count
                                     td=result.Comments
 
                 script.
