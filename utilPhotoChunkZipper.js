@@ -135,6 +135,7 @@ var directoryToStageChunks = "./public/photoZipChunks";
 var maxFilesPerChunk = 25000
 //
 var dateProgramInitiated = new Date()
+createLogEntry('--')
 createLogEntry(dateProgramInitiated + ' Zip processing started.')
 //
 

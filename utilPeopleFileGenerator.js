@@ -26,24 +26,34 @@ var lineToWrite =""
 
     function formatLine ( i ) {  
 		empID = i+","
-        lastName = "Decimus Meridius,"
-        firstName = "Maximus,"
-        position = "General of the felix legions,"
+        lastName = "Decimus Meridius" +i+","
+        firstName = "Maximus"+i+","
+        position = "General of the felix legion - Battalion "+i+ ","
         badgeID = i+","
-        imageName = "myphoto.jpg"
+        imageName = "t"+i+".jpg"
         
         lineToWrite = empID+lastName+firstName+position+badgeID+imageName
 		
 		return lineToWrite
     };
 
-   	function writeFile ( line ) {  
-		fs.open('./public/reports/cardholderTestData.txt', 'a', 666, function( e, id ) {
+    function formatHeader () {  
+        var headerToWrite="empID,lastName,firstName,position,badgeID,imageName"  
+        
+		return headerToWrite
+    };
+
+
+    function writeFile ( numberOfPhotosToGenerate ) {  
+		fs.open('./public/reports/cardholderTestData'+Date.now()+'.csv', 'a', 666, function( e, id ) {
 
             if (e){console.log("People file generator utility: "+e)}
             else{
             
-            for (var i=1 ; i <5000; i++){ 
+            header = formatHeader ()
+            fs.appendFileSync(id, header + "\r\n", null, 'utf8')
+            
+            for (var i=1 ; i <numberOfPhotosToGenerate+1; i++){ 
                 line = formatLine (i)
                 fs.appendFileSync(id, line + "\r\n", null, 'utf8')
             }
@@ -62,9 +72,8 @@ var lineToWrite =""
 */    
 
 //EmpID,LastName,FirstName,POSITION,Badge ID,ImageName,PAYROLLID
-
-
-writeFile ()
+const numberOfPhotosToGenerate = parseInt(process.argv[2])
+writeFile (numberOfPhotosToGenerate)
     
     
 //WriteLine ("EmpID,LastName,FirstName,POSITION,Badge ID,ImageName")

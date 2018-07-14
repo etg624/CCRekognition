@@ -1,19 +1,39 @@
-//var fs = require('fs');
 var fs = require('graceful-fs');
 
 
-// fs.rename('./photoGen/Afghanistan.png', '/path/to/AF.png', function(err) {
-//     if ( err ) console.log('ERROR: ' + err);
-// });
+function createDirectoriesForPhotos (directoryToBeCreated) {
 
-// Prescursor + a number that increments allows for unique name
-var photoName = 1
-var photoNamePrecursor = 'z'
+    if (!fs.existsSync(directoryToBeCreated)){
+        console.log('Directory created before: ' + directoryToBeCreated)
 
-for (var i=1 ; i <81000; i++){ 
+        fs.mkdirSync(directoryToBeCreated);
+        console.log('Directory created: ' + directoryToBeCreated)
+    }
+}
+
+
+function createPhotos (directoryToBeCreated, numberOfPhotosToGenerate) {
+
+    var photoName = 1
+    var photoNamePrecursor = 't'
+    var directoryToWriteFilesTo = directoryToBeCreated+'/'
+
+    for (var i=0 ; i <numberOfPhotosToGenerate; i++){ 
+
+    fs.createReadStream('./46000.jpg').pipe(fs.createWriteStream(directoryToWriteFilesTo+photoNamePrecursor+photoName+'.jpg'));
     photoName++
 
-fs.createReadStream('./public/photosforreader/46000.jpg').pipe(fs.createWriteStream('./public/photosforreader/'+photoNamePrecursor+photoName+'.jpg'));
+    }
 }
+
+
+var timeStamp = Date.now()
+var directoryToBeCreated = "./public/photosforreader"+Date.now()
+const numberOfPhotosToGenerate = parseInt(process.argv[2])
+console.log('Directory created: ' + directoryToBeCreated)
+console.log('Number of photos to generate: '+ numberOfPhotosToGenerate)
+
+createDirectoriesForPhotos(directoryToBeCreated)
+createPhotos(directoryToBeCreated,numberOfPhotosToGenerate)
 
 
