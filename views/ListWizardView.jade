@@ -1,0 +1,71 @@
+
+include mixins
+doctype
+html
+	head
+		title Command Center 5.0
+		script( src='/javascripts/jquery-3.1.1.min.js' )				
+		script( src='/popper.js' )
+		script( src='/bootstrap/js/bootstrap.min.js' )
+		script( src='/bootstrap-table/bootstrap-table.min.js' )
+		link(href="/bootstrap/css/bootstrap.min.css", rel="stylesheet")
+		link(href="/bootstrap-table/bootstrap-table.min.css", rel="stylesheet")
+		link(rel='stylesheet', href='/font-awesome-4.7.0/css/font-awesome.min.css')
+		script( src='/javascripts/bootbox.min.js' )
+
+	body(style="padding-bottom:10rem;")
+		.container
+			block content
+				include navbar
+				br
+				div
+				.row
+					.jumbotron
+						.row
+							.col-md-9
+								h4(id='header') Guided List Creator
+								p(id='comment') You can follow this wizard to quickly create an invite list.
+								form
+									fieldset
+										.form-group.row
+										.form-group
+											select#groupCategoryDropdown.form-control(style = 'display: none')
+												option(id = 'dropdown 0' selected='' value='') Choose...
+												option(id = 'dropdown 1' value='Department') a Department
+												option(id = 'dropdown 2' value='Division') a Division
+												option(id = 'dropdown 3' value='Site Location') a Site Location
+												option(id = 'dropdown 4' value='Building') a Building
+												option(id = 'dropdown 5' value='Office 365 Distribution List') a Office 365 Distribution List
+											select#groupNameDropdown.form-control(style = 'display: none')
+												option(id = 'dropdown 0' selected='' value='') Choose...												
+											.col-md-6
+												button.btn.btn-default.btn-block.btn-outline-secondary(id = 'backButton' type='button' style = 'display: none') Back
+												button.btn.btn-default.btn-block.btn-outline-secondary(id = 'noButton' type='button' style = 'display: none') No
+											.col-md-6
+												button.btn.btn-default.btn-block.btn-outline-secondary(id = 'button' type='button') Next
+												button.btn.btn-default.btn-block.btn-outline-secondary(id = 'yesButton' type='button' style = 'display: none') Yes
+				div#tableDiv(style = 'display: none')
+					.row
+						.col-md-12.col-sm-12.col-xs-12			
+							table#table.table.table-hover.table-striped.table-bordered(data-unique-id="ID" data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100, ALL]" )
+								thead
+									tr.warning
+										th(data-field="LastName" data-sortable= "true" ) Last Name
+										th(data-field="FirstName" data-sortable= "true") First Name
+										th(data-field="Cardnumber" data-sortable= "true") Cardnumber
+										th(data-field="ID" data-sortable= "true") Employee Id
+										th(data-field="Email" data-sortable= "true") Email
+										th(data-field="Title" data-sortable= "true") Title
+										th(data-field="Department" data-sortable= "true") Department
+										th(data-field="Division" data-sortable= "true") Division
+										th(data-field="SiteLocation" data-sortable= "true") SiteLocation
+										th(data-field="Building" data-sortable= "true") Building													
+				script(src='/create-invite-lists/ListWizardScript.js')
+				script.
+					var departments = !{ JSON.stringify(getDepartmentsResult)}
+					var divisions = !{ JSON.stringify(getDivisionsResult) }
+					var siteLocations = !{ JSON.stringify(getSiteLocationsResult) }
+					var buildings = !{ JSON.stringify(getBuildingsResult) }
+					var distributionLists = !{ JSON.stringify(getDistributionListsResult)}
+					var distributionListMembers = !{ JSON.stringify(getDistributionListMembersResult)}
+					loadScripts()

@@ -402,4 +402,36 @@ router.get('/logout', function(req, res) {
 });
 
 
+// ###### Mon Jul 16 09:25:41 PDT 2018 ARA
+
+//############################################### Invite List ############################################################
+var InviteListController = require('../controllers/InviteListController');
+router.get('/createinvitelist', InviteListController.createInviteListHome);
+router.get('/lastinvitelist', InviteListController.getLastInviteList);
+router.post('/postinvitelist', InviteListController.postInviteList);
+router.post('/postinvitee', InviteListController.postInvitee);
+router.get('/listwizard', InviteListController.renderListWizard);
+router.get('/listwizard', InviteListController.renderListWizard);
+router.get('/listwizard/:groupCategory/:groupName', InviteListController.getPeopleByGroup);
+router.delete('/distributionlist', InviteListController.truncateDistributionList);
+router.post('/distributionlist', InviteListController.postDistributionList);
+router.post('/distributionlistmembers', InviteListController.postDistributionListMembers);
+router.get('/distributionlistmembers', InviteListController.getDistributionListMembers);
+router.delete('/distributionlistmembers', InviteListController.truncateDistributionListMembers);
+//############################################### Invite List END ############################################################
+
+
+//############################################### Microsoft Graph ############################################################
+
+var MicrosoftGraphController = require('../controllers/MicrosoftGraphController');
+
+router.get('/microsoftgraph', MicrosoftGraphController.getPeople);
+router.post('/microsoftgraph', MicrosoftGraphController.addPerson);
+
+//############################################### Microsoft Graph END ############################################################
+
+
+
+
+
 module.exports = router;

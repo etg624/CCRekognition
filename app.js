@@ -254,4 +254,333 @@ if (process.env.CC_SSL == "YES"){
   //opn('http://localhost:3000/setup');
 //}
 
+
+
+// ###### Mon Jul 16 09:29:51 PDT 2018 ARA
+
+ // ###################### MICROSOFT GRAPH API ##################################################################################################################################
+
+
+ var auth = require('./microsoft-graph/auth');
+ var graph = require('./microsoft-graph/graph');
+ var findMatches = require('./findMatches');
+ var CreateRandom = require('./CreateRandom');
+
+
+ var exchangeArray = [];
+ var ccArray = [];
+ var exchangeNameArray = [];
+ var exchangePhoneArray = [];
+ var ccNameArray = [];
+ var ccPhoneArray = [];
+ var matches = [];
+
+
+ clearDistributionLists();
+
+
+ // ******************************** BELOW 3: For adding people to DB
+ function callAPIForPeople() {
+   // Get an access token for the app.
+   auth.getAccessToken().then(function (token) {
+     // Get all of the users in the tenant.
+     graph.getContacts(token)
+       .then(function (contacts) {
+         for (var i = 0; i < contacts.length; i++) {
+           let currentContact = contacts[i];
+           // add contact to db;
+           postPerson(currentContact);
+           // exchangeArray.push({
+           //   name: currentContact.givenName + ' ' + currentContact.surname,
+           //   phone: currentContact.mobilePhone
+           // });
+         }
+         // getPeopleFromDB();
+       }, function (error) {
+         console.error('>>> Error getting users: ' + error);
+       });
+   }, function (error) {
+     console.error('>>> Error getting access token: ' + error);
+   });
+ }
+
+ function getPeopleFromDB() {
+   http.get(process.env.SERVER_ADDRESS + '/microsoftgraph', (res) => {
+
+
+     const { statusCode } = res;
+     const contentType = res.headers['content-type'];
+
+     let error;
+     if (statusCode !== 200) {
+       error = new Error('Request Failed.\n' +
+         `Status Code: ${statusCode}`);
+     } else if (!/^application\/json/.test(contentType)) {
+       error = new Error('Invalid content-type.\n' +
+         `Expected application/json but received ${contentType}`);
+     }
+     if (error) {
+       console.error(error.message);
+       // consume response data to free up memory
+       res.resume();
+       return;
+     }
+
+     res.setEncoding('utf8');
+     let rawData = '';
+     res.on('data', (chunk) => { rawData += chunk; });
+     res.on('end', () => {
+       try {
+
+         const parsedData = JSON.parse(rawData);
+
+         for (var i = 0; i < parsedData.length; i++) {
+
+           let currentPerson = parsedData[i];
+
+           ccArray.push({
+             name: currentPerson.FirstName + ' ' + currentPerson.LastName,
+             phone: currentPerson.Phone
+           });
+         }
+
+
+         for (var i = 0; i < exchangeArray.length; i++) {
+           exchangeNameArray.push(exchangeArray[i].name);
+         }
+         for (var i = 0; i < exchangeArray.length; i++) {
+           exchangePhoneArray.push(exchangeArray[i].phone);
+         }
+         for (var i = 0; i < ccArray.length; i++) {
+           ccNameArray.push(ccArray[i].name);
+         }
+         for (var i = 0; i < ccArray.length; i++) {
+           ccPhoneArray.push(ccArray[i].phone);
+         }
+
+         nameMatches = findMatches.find(exchangeNameArray, ccNameArray);
+
+         for (var i = 0; i < nameMatches.length; i++) {
+
+           addPhoneToDB(nameMatches[i]);
+         }
+
+       } catch (e) {
+         console.error(e.message);
+       }
+     });
+   }).on('error', (e) => {
+     console.error(`Got error: ${e.message}`);
+   });
+ }
+
+ function postPerson(contact) {
+
+   const json = querystring.stringify({
+     'FirstName': contact.givenName,
+     'LastName': contact.surname,
+     'Phone': contact.mobilePhone
+   });
+
+   const options = {
+     hostname: 'ec2-34-215-115-69.us-west-2.compute.amazonaws.com',
+     port: 3000,
+     path: '/microsoftgraph',
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/x-www-form-urlencoded',
+       'Content-Length': Buffer.byteLength(json)
+     }
+   };
+
+   const req = http.request(options, (res) => {
+     res.setEncoding('utf8');
+     res.on('data', (chunk) => {
+     });
+     res.on('end', () => {
+     });
+   });
+
+   req.on('error', (e) => {
+   });
+
+   // write data to request body
+   req.write(json);
+   req.end();
+
+
+ }
+
+ // ******************************** BELOW 4: For adding distribution lists
+
+ function clearDistributionLists() {
+
+
+   request.del(process.env.SERVER_ADDRESS + "/distributionlist", function (err, res, body) {
+     if (err) {
+     } else {
+       clearDistributionListMembers()
+     }
+   })
+
+ }
+
+ function clearDistributionListMembers() {
+
+
+   request.del(process.env.SERVER_ADDRESS + "/distributionlistmembers", function (err, res, body) {
+     if (err) {
+     } else {
+       callAPIForGroups();
+     }
+   })
+
+ }
+
+ function callAPIForGroups() {
+   auth.getAccessToken().then(function (token) {
+     // Get all of the users in the tenant.
+     graph.getGroups(token)
+       .then(function (groups) {
+
+         for (var i = 0; i < groups.length; i++) {
+
+           let currentGroup = groups[i];
+
+
+           let json = {
+             ListID: currentGroup.id,
+             ListName: currentGroup.displayName,
+
+           }
+
+           postList(json);
+
+         }
+
+       }, function (error) {
+         console.error('>>> Error getting groups: ' + error);
+       });
+   }, function (error) {
+     console.error('>>> Error getting access token: ' + error);
+   });
+
+ }
+
+ function postList(data) {
+
+   const listData = querystring.stringify({
+     'ListID': data.ListID,
+     'ListName': data.ListName
+   });
+
+
+   const options = {
+     hostname: 'ec2-34-215-115-69.us-west-2.compute.amazonaws.com',
+     port: 3000,
+     path: '/distributionlist',
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/x-www-form-urlencoded'
+     }
+   };
+
+   const req = http.request(options, (res) => {
+     res.setEncoding('utf8');
+     res.on('data', (chunk) => {
+     });
+     res.on('end', () => {
+
+       callAPIForMembers(data);
+     });
+   });
+
+   req.on('error', (e) => {
+   });
+
+   // write data to request body
+   req.write(listData);
+   req.end();
+
+ }
+
+ function callAPIForMembers(data) {
+
+   auth.getAccessToken().then(function (token) {
+     // Get all of the users in the tenant.
+     graph.getGroupMembers(token, data.ListID)
+       .then(function (members) {
+
+         for (var i = 0; i < members.length; i++) {
+
+           let currentMember = members[i];
+
+           let memberID = CreateRandom.create();
+           console.log(memberID);
+
+           let personData = {
+             'MemberID': memberID,
+             'ListID': data.ListID,
+             'LastName': currentMember.surname,
+             'FirstName': currentMember.givenName,
+             'EmailAddress': currentMember.mail,
+             'NotificationNumber': currentMember.mobilePhone
+           }
+
+           console.log('logging personData');
+           console.log(personData);
+
+           postMember(personData);
+
+         }
+
+       }, function (error) {
+         console.error('>>> Error getting members: ' + error);
+       });
+   }, function (error) {
+     console.error('>>> Error getting access token: ' + error);
+   });
+ }
+
+ function postMember(personData) {
+
+   const data = querystring.stringify(personData);
+
+
+   const options = {
+     hostname: 'ec2-34-215-115-69.us-west-2.compute.amazonaws.com',
+     port: 3000,
+     path: '/distributionlistmembers',
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/x-www-form-urlencoded'
+     }
+   };
+
+
+   let req = http.request(options, (res) => {
+     res.setEncoding('utf8');
+     res.on('data', (chunk) => {
+     });
+     res.on('end', () => {
+     });
+   });
+
+   req.on('error', (e) => {
+     console.log('logging error ');
+     console.log(e);
+   });
+
+
+
+   // write data to request body
+   req.write(data);
+   req.end();
+
+
+
+ }
+
+ // ###################### MICROSOFT GRAPH API END ##################################################################################################################################
+
 module.exports = app;

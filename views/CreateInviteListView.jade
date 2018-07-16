@@ -1,0 +1,203 @@
+include mixins
+doctype
+html
+	head
+		title Command Center 5.0
+		script( src='/javascripts/jquery-3.1.1.min.js' )				
+		script( src='/popper.js' )
+		script( src='/bootstrap/js/bootstrap.min.js' )
+		script( src='/bootstrap-table/bootstrap-table.min.js' )
+		link(href="/bootstrap/css/bootstrap.min.css", rel="stylesheet")
+		link(href="/bootstrap-table/bootstrap-table.min.css", rel="stylesheet")
+		link(rel='stylesheet', href='/font-awesome-4.7.0/css/font-awesome.min.css')
+		script( src='/javascripts/bootbox.min.js' )
+
+	body(style="padding-bottom:10rem;")
+		.container   
+			block content
+
+				include navbar
+						
+				h3 Create Invite List
+				br
+				
+				div
+				.row
+					.col-md-12.col-sm-12.col-xs-12			
+						table#addTable.table.table-hover.table-striped.table-bordered(data-unique-id="ID" data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100, ALL]")
+							thead
+								tr.warning
+									th#headerCheckBoxAdded(data-field="state" data-checkbox="true" data-sortable= "true")
+									th(data-field="LastName" data-sortable= "true" ) Last Name
+									th(data-field="FirstName" data-sortable= "true") First Name
+									th(data-field="Cardnumber" data-sortable= "true") Cardnumber
+									th(data-field="ID" data-sortable= "true") Employee Id
+									th(data-field="Email" data-sortable= "true") Email
+									th(data-field="Title" data-sortable= "true") Title
+									th(data-field="Department" data-sortable= "true") Department
+									th(data-field="Division" data-sortable= "true") Division
+									th(data-field="SiteLocation" data-sortable= "true") SiteLocation
+									th(data-field="Building" data-sortable= "true") Building									
+				br
+				br								
+				div
+				.row
+					.col-md-12.col-sm-12.col-xs-12
+						table#removeTable.table.table-hover.table-striped.table-bordered(data-unique-id="ID" data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100, ALL]")
+							thead
+								tr.warning
+									th#headerCheckBoxAdded(data-field="state" data-checkbox="true" data-sortable= "true")
+									th(data-field="LastName" data-sortable= "true" ) Last Name
+									th(data-field="FirstName" data-sortable= "true") First Name
+									th(data-field="Cardnumber" data-sortable= "true") Cardnumber
+									th(data-field="ID" data-sortable= "true") Employee Id
+									th(data-field="Email" data-sortable= "true") Email
+									th(data-field="Title" data-sortable= "true") Title
+									th(data-field="Department" data-sortable= "true") Department
+									th(data-field="Division" data-sortable= "true") Division
+									th(data-field="SiteLocation" data-sortable= "true") SiteLocation
+									th(data-field="Building" data-sortable= "true") Building
+							tbody
+				br
+				div
+				.row
+					.col-md-4.col-sm-12.col-xs-12.col-md-offset-4
+						#createButton
+								a.btn.btn-default.btn-block
+									i.fa.fa-check(aria-hidden='true')
+									| &nbsp Create
+					script(src='/create-invite-lists/CreateInviteListScript.js')
+					script.
+						var results = !{ JSON.stringify(results) };
+						var dataArray = [];						
+						$(function () {
+							var addTable = $('#addTable');
+							var removeTable = $('#removeTable');
+							var results = !{ JSON.stringify(results) };
+							for (i = 0 ; i < results.length ; i ++ ){
+							var result = results[i]
+							addTable.bootstrapTable('append', {LastName: result.LastName, FirstName: result.FirstName, Cardnumber: result.iClassNumber, ID: result.EmpID, Email: result.Email, Title: result.Title, Department: result.Department, Division: result.Division, SiteLocation: result.SiteLocation, Building: result.Building});
+							}
+							addTable.bootstrapTable('refreshOptions', {
+								pageSize:10,
+								sortName: 'LastName'
+							});			
+							addTable.on('check.bs.table', function(row, $element)
+							{
+								var data = ({
+									LastName:$element.LastName, 
+									FirstName: $element.FirstName,
+									Cardnumber: $element.Cardnumber,
+									ID: $element.ID,
+									Email: $element.Email,
+									Title: $element.Title,
+									Department: $element.Department,
+									Division: $element.Division,
+									SiteLocation: $element.SiteLocation,
+									Building: $element.Building
+								})
+								addTable.bootstrapTable('removeByUniqueId',$element.ID);
+								removeTable.bootstrapTable('append', data);
+								dataArray.push(data);
+							addTable.bootstrapTable('refreshOptions', {
+								pageSize:10,
+								sortName: 'LastName'
+							});											
+							removeTable.bootstrapTable('refreshOptions', {
+								pageSize:10
+							});												
+							});
+							addTable.on('check-all.bs.table', function(rows)	
+							{
+								var selections = addTable.bootstrapTable('getSelections');
+								console.log(selections);
+
+								for (i = 0 ; i < selections.length ; i++){
+									var selection = selections[i];
+								var data = ({
+									LastName:selection.LastName, 
+									FirstName: selection.FirstName,
+									Cardnumber: selection.Cardnumber,
+									ID: selection.ID,
+									Email: selection.Email,
+									Title: selection.Title,
+									Department: selection.Department,
+									Division: selection.Division,
+									SiteLocation: selection.SiteLocation,
+									Building: selection.Building								
+								})	
+								addTable.bootstrapTable('removeByUniqueId',selection.ID);
+								removeTable.bootstrapTable('append', data);
+								dataArray.push(data);																
+								}
+							addTable.bootstrapTable('refreshOptions', {
+								pageSize:10,
+								sortName: 'LastName'
+							});											
+							removeTable.bootstrapTable('refreshOptions', {
+								pageSize:10
+							});												
+							});
+							removeTable.on('check.bs.table', function(row, $element)
+							{
+								var data = ({
+									LastName:$element.LastName, 
+									FirstName: $element.FirstName,
+									Cardnumber: $element.Cardnumber,
+									ID: $element.ID,
+									Email: $element.Email,
+									Title: $element.Title,
+									Department: $element.Department,
+									Division: $element.Division,
+									SiteLocation: $element.SiteLocation,
+									Building: $element.Building								
+								})
+								removeTable.bootstrapTable('removeByUniqueId',$element.ID);
+								addTable.bootstrapTable('append', data);
+								addTable.bootstrapTable('refreshOptions', {
+								pageSize:10,
+								sortName: 'LastName'
+							});		
+							removeTable.bootstrapTable('refreshOptions', {
+								pageSize:10
+							});	
+							dataArray = [];
+							var newData = removeTable.bootstrapTable('getData');
+							dataArray.push(newData);
+							});
+							removeTable.on('check-all.bs.table', function(rows)	
+							{
+								var selections = removeTable.bootstrapTable('getSelections');
+								console.log(selections);
+
+								for (i = 0 ; i < selections.length ; i++){
+									var selection = selections[i];
+								var data = ({
+									LastName:selection.LastName, 
+									FirstName: selection.FirstName,
+									Cardnumber: selection.Cardnumber,
+									ID: selection.ID,
+									Email: selection.Email,
+									Title: selection.Title,
+									Department: selection.Department,
+									Division: selection.Division,
+									SiteLocation: selection.SiteLocation,
+									Building: selection.Building
+								})	
+								removeTable.bootstrapTable('removeByUniqueId',selection.ID);
+								addTable.bootstrapTable('append', data);
+								dataArray = [];
+								var newData = removeTable.bootstrapTable('getData');
+								dataArray.push(newData);
+								}
+							addTable.bootstrapTable('refreshOptions', {
+								pageSize:10,
+								sortName: 'LastName'
+							});											
+							removeTable.bootstrapTable('refreshOptions', {
+								pageSize:10
+							});										
+							});							
+						});	
+						loadScripts();					
+									
