@@ -156,6 +156,8 @@ function loadScripts() {
             backButton.style.display = 'none'
             button.style.display = 'block';
             tableDiv.style.display = 'none';
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none'; 
             clearAll();
 
             button.innerText = 'Begin'
