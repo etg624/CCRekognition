@@ -266,6 +266,7 @@ if (process.env.CC_SSL == "YES"){
  var findMatches = require('./findMatches');
  var CreateRandom = require('./CreateRandom');
  var request = require('request');
+ const querystring = require('querystring');
 
 
  var exchangeArray = [];
