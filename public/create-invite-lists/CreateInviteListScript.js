@@ -30,7 +30,7 @@ function loadScripts() {
                             return false;
                         }
 
-                        xhr.open("POST", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:3000/postinvitelist", true);
+                        xhr.open("POST", "https://convoyer.mobsscmd.com/postinvitelist", true);
 
                         xhr.setRequestHeader('Content-Type', 'application/json');
                         xhr.send(JSON.stringify({
@@ -68,7 +68,7 @@ function loadScripts() {
             return false;
         }
 
-        xhr.open("GET", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:3000/lastinvitelist", true);
+        xhr.open("GET", "https://convoyer.mobsscmd.com/lastinvitelist", true);
 
         xhr.send(null);
 
@@ -98,7 +98,7 @@ function loadScripts() {
             return false;
         }
 
-        xhr.open("POST", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:3000/postinvitee", true);
+        xhr.open("POST", "https://convoyer.mobsscmd.com/postinvitee", true);
 
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
