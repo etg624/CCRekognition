@@ -11,6 +11,8 @@ var db = require('../models/db');
 //###### May 25 2018 Create the zip file upon completion of the ingest
 var archiver = require('archiver');
 
+// ###### Mon Jul 16 14:57:48 PDT 2018 ARA
+const { fork } = require('child_process');
 
 
 
@@ -43,66 +45,50 @@ exports.photosHome = function(req, res) {
 ///////////////////////////////////////////////////////////////////
 //** handler for processing the photos into the public directory //
 ///////////////////////////////////////////////////////////////////
-exports.photosIngest = function(req, res) {
- console.log('am i getting into the ingest handler');
-  sess=req.session;
-// Going to need this to be a user input or a parameter.  User selected from and to but with To showing a default to the
-var moveFrom = req.body.directorySource;
 
-var moveTo = "./public/photosforreader";
+// ###### Mon Jul 16 14:59:27 PDT 2018 ARA (got rid of old function)
 
-// Loop through all the files in the source directory
-fs.readdir( moveFrom, function( err, files ) {
-        if( err ) {
-            console.error( "Could not list the directory.", err );
-            sess.photosSuccess= null;
-            sess.photosError= 'Directory does not exist or not accessible';
-            res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess, error: sess.photosError });
-            //process.exit( 1 );
-        }else{ 
+exports.photosIngest = function (req, res) {
 
-        //###### May 25 2018 Create the zip file upon completion of the ingest
-        fileTotal = files.length  
-        var counter = 0
 
-        files.forEach( function( file, index ) {
-                var fromPath = path.join( moveFrom, file );
-                var toPath = path.join( moveTo, file );
+  console.log('am i getting into the ingest handler');
+  sess = req.session;
+  // Going to need this to be a user input or a parameter.  User selected from and to but with To showing a default to the
+  var moveFrom = req.body.directorySource;
 
-                fs.stat( fromPath, function( error, stat ) {
-                    if( error ) {
-                        console.error( "Error stating file.", error );
-                        return;
-                    }
+  var moveTo = "./public/photosforreader";
 
-                    if( stat.isFile() )
-                        console.log( "'%s' is a file.", fromPath );
-                    else if( stat.isDirectory() )
-                        console.log( "'%s' is a directory.", fromPath );
-                    // was 200, 300.  changed to smaller size 7/7/17  
-                    sharp(fromPath).resize(100, 150).toFile(toPath, function(err) {
-                       //###### May 25 2018 Create the zip file upon completion of the ingest
-                       counter++
+  // Loop through all the files in the source directory
+  fs.readdir(moveFrom, function (err, files) {
+    if (err) {
+      console.error("Could not list the directory.", err);
+      sess.photosSuccess = null;
+      sess.photosError = 'Directory does not exist or not accessible';
+      res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess, error: sess.photosError });
+      //process.exit( 1 );
+    } else {
 
-                         if (err) {
-                            console.log("One of the files is not in expected format (.jpg) "+err);
-                            return;
-                         }
+      const fork = require('child_process').fork;
+      const program = path.resolve('ProcessImages.js');
+      const parameters = [];
+      const options = {
+        // stdio: [ 'pipe', 'pipe', 'pipe', 'ipc' ]
+      };
+      const child = fork(program, parameters, options);
 
-                         if (counter == fileTotal){
-                          zipPhotos(function(err,reslt){ 
-                          }) 
-                        }
-                    });
+      child.on('message', message => {
+        console.log('message from child:', message);
+        child.send({files: files, moveFrom: moveFrom});
+      });
 
-                } );
-        } );
-        //feb--finished looping through the directory, so process successful response
-        sess.photosSuccess= 'Photos processed successfully';
-        sess.photosError= null;
-        res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess });
-      }
-} );
+
+
+      //feb--finished looping through the directory, so process successful response
+      sess.photosSuccess = 'Photos processed successfully';
+      sess.photosError = null;
+      res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess });
+    }
+  });
 
 }; //feb--end of export.photosIngest
 
