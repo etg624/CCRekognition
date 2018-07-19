@@ -50,6 +50,10 @@ function initMap() {
 
         try {
 
+            console.log('logging lat and lng');
+            console.log(lat);
+            console.log(lng);
+
             if (lat && lng) {
                 var marker = new google.maps.Marker({
                     position: { lat: lat, lng: lng },
@@ -297,7 +301,7 @@ function initMap() {
 
                 for (var i = 0; i < markers.length; i++) {
 
-                    if (markers.length > 0){
+                    if (markers.length > 1){
                         markers[i].setMap(null);
                         markers = [];
                     }
