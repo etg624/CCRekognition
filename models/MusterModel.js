@@ -175,8 +175,8 @@ module.exports.getMusterPoints = function(id, callback){
                                 }
                               
                           }
-                          console.log('logging resultsArray');
-                          console.log(resultsArray);
+                        //   console.log('logging resultsArray');
+                        //   console.log(resultsArray);
                       }
 
                         connection.end();
