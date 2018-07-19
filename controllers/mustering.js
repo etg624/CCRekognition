@@ -1716,6 +1716,9 @@ db.createConnection(function(err,reslt){
 // Handler for emailing the unaccounted during a muster.                          //
 ////////////////////////////////////////////////////////////////////////////////////
 exports.emailUnaccounted = function(req, res) {
+
+  console.log('emailUnaccounted called');
+
   //console.error('im in the EMAIL EVAC handler: '+ req.params.resEvacDisplay);
   sess=req.session;
   var musterID = req.params.musterID;
