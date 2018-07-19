@@ -295,7 +295,7 @@ function initMap() {
 
                 for (var i = 0; i < markers.length; i++) {
 
-                    if (markers){
+                    if (markers.length > 0){
                         markers[i].setMap(null);
                         markers = [];
                     }
