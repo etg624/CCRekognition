@@ -442,6 +442,10 @@ router.get('/musterGetPoints/:id', MusterController.getMusterPoints);
 
 //############################################## AJAX Stuff End ############################################################
 
+//==================Email Additions============//
+var EmailController = require('../controllers/emailController');
+router.post('/emailcheckin/:email/:eventid', EmailController.checkInByEmail);
+//==================Email Additions============//
 
 
 
