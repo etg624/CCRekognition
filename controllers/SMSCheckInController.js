@@ -137,8 +137,8 @@ module.exports.sendAlerts = function (req, res) {
         for (var i = 0; i < getUnaccountedResults.length; i++) {
 
           var result = getUnaccountedResults[i];
-          //console.log('logging result');
-          //console.log(result);
+          console.log('logging result');
+          console.log(result);
 
 
           if (result.NotificationNumber != '0' && result.NotificationNumber != '') {
