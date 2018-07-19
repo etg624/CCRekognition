@@ -292,6 +292,8 @@ function initMap() {
 
                 console.log('logging MusterDataNew');
                 console.log(musterDataNew);
+                console.log('logging markers');
+                console.log(markers);
 
                 for (var i = 0; i < markers.length; i++) {
 
