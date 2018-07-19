@@ -27,6 +27,9 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.MAP
     });
 
+    console.log('logging musterData at top');
+    console.log(musterData);
+
     //Loop through the array containing all the muster points and associated counts					 
     for (i = 0; i < musterData.length; i++) {
         console.log('logging musterData');
