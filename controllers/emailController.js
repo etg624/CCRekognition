@@ -105,38 +105,16 @@ module.exports.sendIncidentEmail = function (data) {
     // var transporter = nodemailer.createTransport(smtpConfig);
 
     var title = process.env.EMERGENCY_TITLE
-    var message = `
-    There is an Emergency in progress at the school. Please click the link below to confirm that you are okay. 
-    Please review the emergency procedures... https://emilms.fema.gov/IS360/SAFE0104230text2.htm'
-  
-    Problem Statement:
-Mobbs readers have Bluetooth transceivers that pair to iPods inside the same housing.
-However, if a customer has multiple Mobbs readers the iPods may pair to the wrong
-Bluetooth, rendering the system unusable.
-
-Possible Solution.
- A few months ago, I loaded the wrong firmware hex into the Bluetooth. The only difference
-I am aware of is this firmware had a different UUID name. No matter what I tried the IOS 
-would not allow me to pair to this Bluetooth. The IOS was apparently looking for a UUID
-of CardReader Demo, however the firmware I loaded had a UUID called Mobbs Reader.
-The different UUID name was effectively locking out other names and only pairing to CardReader
-Demo.This mistake got me thinking that perhaps we could use the UUID name to exclusively
-pair to the correct unit. If we used a unique firmware for each Bluetooth module and also made
-the IOS name changeable we would have a locked down system.
-
-IOS Question:
-Is it true that the IOS is looking for a UUID of CardReader Demo ? And, if so can we make this choice settable in IOS ?
-
-If then:
-Depending on the answer to the IOS question, we can decide to move forward with this approach or not… This would involve changes in both IOS and Bluetooth hex. 
-
-thanks
-Randy
-
-    `
 
     //Loop through the unaccounted table and find their emails
     for (var i = 0; i < data.length; i++) {
+
+        var message = `
+        There is an Emergency in progress at the school. Please click the link below to confirm that you are okay. 
+        Please review the emergency procedures... https://emilms.fema.gov/IS360/SAFE0104230text2.htm'
+    
+        ` + process.env.SERVER_ADDRESS + '/emailcheckin/' + data[i].EmailAddress + '/' + data[i].MusterID;
+    
 
         //--
         // Email report
