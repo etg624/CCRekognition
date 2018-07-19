@@ -43,23 +43,23 @@ block content
 									tbody
 										tr
 											td Total Counted: 
-											td #{resTotalScanned}		
+											td#totalCounted #{resTotalScanned}		
 										tr
 											td Known from Evac List: 
-											td #{resTotalFromEvacList}
+											td#knowns #{resTotalFromEvacList}
 										tr
 											td Manual check-ins of unknowns: 
-											td #{resTotalUnknown}											
+											td#unknowns #{resTotalUnknown}											
 										tr
 											td Check-ins with invalid cards: 
-											td #{resTotalInvalid}																																																													
+											td#invalids #{resTotalInvalid}																																																													
 						.row
 							div#titleContainer.scrollable-table-small
 								table#pickle.table.table-hover.table-striped.table-bordered
 									thead
 										tr
 											th(colspan="2") Unaccounted on Evac List: 	
-											th #{missingCount}							
+											th#unaccounted #{missingCount}							
 						.row							
 							div#evacContainer.scrollable-table-large
 								table#pickle.table.table-hover.table-striped.table-bordered

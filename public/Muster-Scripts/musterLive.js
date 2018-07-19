@@ -99,10 +99,10 @@ function initMap() {
                 totalAttendance = knownAttendance + unknownAttendance + invalidAttendance;
 
                 var knownsLabel = document.getElementById('knowns');
-                knownsLabel.innerText = 'Known from Evac List: ' + knownAttendance;
+                knownsLabel.innerText = knownAttendance;
 
                 var totalCountedLabel = document.getElementById('totalCounted');
-                totalCountedLabel.innerText = 'Total Counted: ' + totalAttendance;
+                totalCountedLabel.innerText = totalAttendance;
 
                 getUnaccounted();
 
@@ -152,7 +152,7 @@ function initMap() {
 
                 var unknownsLabel = document.getElementById('unknowns');
 
-                unknownsLabel.innerText = 'Manual check-ins of unknowns: ' + data.length;
+                unknownsLabel.innerText = data.length;
 
                 console.log('logging unknownAttendance')
                 console.log(unknownAttendance)
@@ -188,7 +188,7 @@ function initMap() {
                 console.log(invalidAttendance)
 
                 var invalidsLabel = document.getElementById('invalids');
-                invalidsLabel.innerText = 'Check-ins with invalid cards: ' + invalidAttendance;
+                invalidsLabel.innerText = invalidAttendance;
                 getTotalAttendance();
             }
 
@@ -223,7 +223,7 @@ function initMap() {
                 unaccountedAttendance = evacuationLength - totalAttendance;
 
                 var unaccountedLabel = document.getElementById('unaccounted');
-                unaccountedLabel.innerText = 'Unaccounted on Evac List: ' + unaccountedAttendance;
+                unaccountedLabel.innerText = unaccountedAttendance;
 
                 updateProgressBar();
                 updateMarkers();
