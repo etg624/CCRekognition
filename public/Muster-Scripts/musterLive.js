@@ -127,7 +127,7 @@ function initMap() {
             }
         }
 
-        xhr.open("GET", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:8001/musterAttendance/" + musterID, true);
+        xhr.open("GET", "https://convoyer.mobsscmd.com/musterAttendance/" + musterID, true);
         xhr.send(null);
 
     }
@@ -162,7 +162,7 @@ function initMap() {
 
         }
 
-        xhr.open("GET", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:8001/musterUnknowns/" + musterID, true);
+        xhr.open("GET", "https://convoyer.mobsscmd.com/musterUnknowns/" + musterID, true);
         xhr.send(null);
     }
 
@@ -194,7 +194,7 @@ function initMap() {
 
         }
 
-        xhr.open("GET", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:8001/musterInvalids/" + musterID, true);
+        xhr.open("GET", "https://convoyer.mobsscmd.com/musterInvalids/" + musterID, true);
         xhr.send(null);
     }
 
@@ -231,7 +231,7 @@ function initMap() {
 
         }
 
-        xhr.open("GET", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:8001/musterEvacuation/", true);
+        xhr.open("GET", "https://convoyer.mobsscmd.com/musterEvacuation/", true);
         xhr.send(null);
     }
 
@@ -326,7 +326,7 @@ function initMap() {
 
         console.log('logging musterID');
 
-        xhr.open("GET", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:8001/musterGetPoints/" + musterID, true);
+        xhr.open("GET", "https://convoyer.mobsscmd.com/musterGetPoints/" + musterID, true);
         xhr.send(null);
 
 
@@ -349,7 +349,7 @@ function initMap() {
             return false;
         }
 
-        xhr.open("POST", "http://ec2-34-215-115-69.us-west-2.compute.amazonaws.com:8001/sendsmsalert", true);
+        xhr.open("POST", "https://convoyer.mobsscmd.com/sendsmsalert", true);
 
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
