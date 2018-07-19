@@ -157,14 +157,24 @@ Randy
             };
 
             //send mail with defined transport object
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    return console.log(error);
-                }
-                console.log('Message %s sent: %s', info.messageId, info.response);
-            });
+            // transporter.sendMail(mailOptions, (error, info) => {
+            //     if (error) {
+            //         return console.log(error);
+            //     }
+            //     console.log('Message %s sent: %s', info.messageId, info.response);
+            // });
 
 
+            sgMail.setApiKey(process.env.EMAIL_PASS);
+            const msg = {
+                to: to,
+                from: process.env.EMAIL_FROMADDR,
+                subject: subject,
+                text: message
+            };
+            sgMail.send(msg);
+
+            
         }
 
     }
@@ -172,15 +182,6 @@ Randy
 
 
 
-
-    // sgMail.setApiKey(process.env.EMAIL_PASS);
-    // const msg = {
-    //     to: to,
-    //     from: process.env.EMAIL_FROMADDR,
-    //     subject: subject,
-    //     text: message
-    // };
-    // sgMail.send(msg);
 
 
 };
