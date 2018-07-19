@@ -753,6 +753,9 @@ exports.musterLive= function(req, res) {
             //   }
             // }
             // Loop through the muster records and remove them from the evac array
+            
+            console.log('logging resz1 from mustering.js');
+            console.log(resz1);
             for (var i=0; i < resz1.length; i++) {
               
               
