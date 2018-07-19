@@ -34,10 +34,10 @@ block content
 											th(colspan="2") Live Muster -- #{musterName} [##{musterID}]
 						form.form-signin(class="form-horizontal", Action="/musterLive/#{musterID}", method="post")
 							.form-group											
-						.row				
+							.row				
 								button.btn.btn-danger.btn-block(type='submit') Email Unaccounted		  
 								button.btn.btn-danger.btn-block(id = 'textButton' type='button') SMS Unaccounted	  																								
-						.row						
+							.row						
 							div#dataContainer.scrollable-table-small
 								table#pickle.table.table-hover.table-striped.table-bordered
 									tbody
