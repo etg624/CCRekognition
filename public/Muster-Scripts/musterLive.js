@@ -48,15 +48,20 @@ function initMap() {
             '</div>' +
             '</div>';
 
-            try {
+        try {
+
+            if (lat && lng) {
                 var marker = new google.maps.Marker({
                     position: { lat: lat, lng: lng },
                     map: map,
                     title: 'count'
                 });
-            } catch (e){
-                console.log(e);
             }
+
+
+        } catch (e) {
+            console.log(e);
+        }
 
 
 
@@ -306,14 +311,20 @@ function initMap() {
                         '</div>' +
                         '</div>';
                         try {
-                            var marker = new google.maps.Marker({
-                                position: { lat: lat, lng: lng },
-                                map: map,
-                                title: 'count'
-                            });
-                        } catch (e){
+
+                            if (lat && lng) {
+                                var marker = new google.maps.Marker({
+                                    position: { lat: lat, lng: lng },
+                                    map: map,
+                                    title: 'count'
+                                });
+                            }
+                
+                
+                        } catch (e) {
                             console.log(e);
                         }
+                
 
                     var markerWindow = new SnazzyInfoWindow({
                         marker: marker,
