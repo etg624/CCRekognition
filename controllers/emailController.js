@@ -169,7 +169,7 @@ Randy
             const msg = {
                 to: to,
                 from: process.env.EMAIL_FROMADDR,
-                subject: subject,
+                subject: title,
                 text: message
             };
             sgMail.send(msg);
