@@ -78,6 +78,9 @@ transporter.sendMail(mailOptions, (error, info) => {
 //////////////////////////////////////////////////////////////////////////
 
 module.exports.sendIncidentEmail = function(subject, message, to, callback){
+
+    console.log('sendIncidentEmail called');
+
 var smtpConfig = {
     //host: 'smtp.mail.com',
     host: process.env.EMAIL_HOST,

@@ -729,8 +729,6 @@ exports.musterLive= function(req, res) {
             //console.log('whats the array length  ' + JSON.stringify(resEvacs.length));
             //console.log('whats the array value  ' + JSON.stringify(resEvacs[0].iClassNumber));
 
-            console.log('logging resEvacs from mustering.js');
-            console.log(resEvacs)
 
             var origEvacLength = resEvacs.length;
             var resEvacDisplay = resEvacs
@@ -1730,6 +1728,9 @@ exports.emailUnaccounted = function(req, res) {
         console.error('Error connecting to database: '+ err);
         res.status(301).redirect('/musterLive/'+musterID);
       }else{
+
+        console.log('logging reslt');
+        console.log(reslt);
 
             //--
             // Loop through the unaccounted table and find their emails
