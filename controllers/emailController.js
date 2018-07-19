@@ -84,6 +84,8 @@ module.exports.sendAttendanceEmail = function (subject, message, to, fileName, c
 
 module.exports.sendIncidentEmail = function (data) {
 
+    console.log('sendIncidentEmail called');
+
     var smtpConfig = {
         //host: 'smtp.mail.com',
         host: process.env.EMAIL_HOST,

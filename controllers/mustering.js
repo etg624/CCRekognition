@@ -1740,6 +1740,7 @@ exports.emailUnaccounted = function(req, res) {
                     //--
                     // Email report
                     if (reslt[i].EmailAddress !="" && reslt[i].EmailAddress !=null ){
+
                       var title = process.env.EMERGENCY_TITLE 
                       var message = process.env.EMERGENCY_MESSAGE
                       
