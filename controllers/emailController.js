@@ -142,7 +142,6 @@ Randy
         // Email report
         if (data[i].EmailAddress != "" && data[i].EmailAddress != null) {
 
-            console.log('are we getting here hoe?')
             var to = data[i].EmailAddress;
 
             // setup email data with unicode symbols

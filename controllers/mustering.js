@@ -1744,9 +1744,9 @@ exports.emailUnaccounted = function(req, res) {
                       var title = process.env.EMERGENCY_TITLE 
                       var message = process.env.EMERGENCY_MESSAGE
                       
-                        emailController.sendIncidentEmail(title, message, reslt[i].EmailAddress,function(err,reslt){
-                          if (err) {console.log('a problem occurred, attempting to email evacuee')}
-                          });
+                      emailController.sendIncidentEmail(reslt, function (err, reslt) {
+                        if (err) { console.log('a problem occurred, attempting to email evacuee') }
+                      });
                      
                     }
                     
