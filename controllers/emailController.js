@@ -111,6 +111,11 @@ module.exports.sendIncidentEmail = function (data) {
 
         var message = `
         There is an Emergency in progress at the school. Please click the link below to confirm that you are okay. 
+
+` + process.env.SERVER_ADDRESS + '/emailcheckin/' + data[i].EmailAddress + '/' + data[i].MusterID; + `
+
+
+
         Please review the emergency procedures... https://emilms.fema.gov/IS360/SAFE0104230text2.htm'
         `
     
