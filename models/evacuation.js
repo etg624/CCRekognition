@@ -106,6 +106,10 @@ module.exports.getEvacuationList = function(callback){
 //###### Wed May 02 18:27:05 PDT 2018 Update the unaccounted table during the live muster
 module.exports.updateUnaccounted = function(musterID, resEvacDisplay, callback){
   
+  console.log('logging resEvacDisplay from updateUnaccounted in evacuation.js')
+  console.log(resEvacDisplay);
+
+
     db.createConnection(function(err,reslt){  
       if (err) {
         console.log('Error while performing common connect query: ' + err);
