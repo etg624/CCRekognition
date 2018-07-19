@@ -16,7 +16,7 @@ function initMap() {
     var markers = [];
     var markerWindows = [];
 
-    setDataTable();
+    setDataTables();
     setTextButton();
 
     var center = { lat: centerLat, lng: centerLng };
@@ -259,10 +259,21 @@ function initMap() {
 
     }
 
-    function setDataTable() {
+    function setDataTables() {
+
+        const mainTitleContainer = parent.document.querySelector('#mainTitleContainer');
+        const mainPS = new PerfectScrollbar(mainTitleContainer);
+
+        const dataContainer = parent.document.querySelector('#dataContainer');
+        const datPS = new PerfectScrollbar(dataContainer);
+
+        const titleContainer = parent.document.querySelector('#titleContainer');
+        const titlePS = new PerfectScrollbar(titleContainer);
 
         const evacContainer = parent.document.querySelector('#evacContainer');
         const evacPS = new PerfectScrollbar(evacContainer);
+
+
     }
 
     function updateMarkers() {
