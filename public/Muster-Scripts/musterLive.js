@@ -283,8 +283,12 @@ function initMap() {
                 console.log(musterDataNew);
 
                 for (var i = 0; i < markers.length; i++) {
-                    markers[i].setMap(null);
-                    markers = [];
+
+                    if (markers){
+                        markers[i].setMap(null);
+                        markers = [];
+                    }
+
                 }
 
                 for (var i = 0; i < markerWindows.length; i++) {
