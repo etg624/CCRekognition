@@ -34,8 +34,8 @@ function initMap() {
     for (i = 0; i < musterData.length; i++) {
         console.log('logging musterData');
         console.log(musterData);
-        var lat = musterData[i].lat;
-        var lng = musterData[i].lng;
+        var lat = musterData[i].Lat;
+        var lng = musterData[i].Lng;
         console.log('logging lat and lng');
         console.log(lat);
         console.log(lng);
