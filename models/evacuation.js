@@ -149,6 +149,7 @@ module.exports.updateUnaccounted = function(musterID, resEvacDisplay, callback){
               console.log("HERE is the notification number for linklater "+JSON.stringify(resEvacDisplay[n].NotificationNumber))
              }
             
+             console.log(resEvacDisplay[n].NotificationNumber)
             insertArray.push([resEvacDisplay[n].iClassNumber, resEvacDisplay[n].LastName, resEvacDisplay[n].FirstName, _updateTime,"", "", "", "", resEvacDisplay[n].EmailAddress, resEvacDisplay[n].NotificationNumber,resEvacDisplay[n].EmergContactNumber,musterID])
           }
                 
