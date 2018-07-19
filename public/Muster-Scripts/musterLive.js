@@ -47,11 +47,18 @@ function initMap() {
             '<div id="bodyContent">' +
             '</div>' +
             '</div>';
-        var marker = new google.maps.Marker({
-            position: { lat: lat, lng: lng },
-            map: map,
-            title: 'count'
-        });
+
+            try {
+                var marker = new google.maps.Marker({
+                    position: { lat: lat, lng: lng },
+                    map: map,
+                    title: 'count'
+                });
+            } catch (e){
+                console.log(e);
+            }
+
+
 
         var markerWindow = new SnazzyInfoWindow({
             marker: marker,
@@ -298,11 +305,15 @@ function initMap() {
                         '<div id="bodyContent">' +
                         '</div>' +
                         '</div>';
-                    var marker = new google.maps.Marker({
-                        position: { lat: lat, lng: lng },
-                        map: map,
-                        title: 'count'
-                    });
+                        try {
+                            var marker = new google.maps.Marker({
+                                position: { lat: lat, lng: lng },
+                                map: map,
+                                title: 'count'
+                            });
+                        } catch (e){
+                            console.log(e);
+                        }
 
                     var markerWindow = new SnazzyInfoWindow({
                         marker: marker,
