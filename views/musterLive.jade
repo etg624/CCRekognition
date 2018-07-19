@@ -78,11 +78,13 @@ block content
 						#map
 						script(src='/Muster-Scripts/musterLive.js')
 						script.
-							var data = !{JSON.stringify(resz2)};
-							var serverAddress = !{JSON.stringify(serverAddress)};
-							var centerLat = !{musterLat}
-							var centerLng = !{musterLng}	
-							var musterID = !{musterID};					
+							var musterID = !{musterID};
+							var musterData = !{JSON.stringify(resz2)};
+							var centerLat = !{musterLat};
+							var centerLng = !{musterLng};
+							var evacData = !{JSON.stringify(resEvacDisplay)};
+							var missingCount = !{missingCount};
+							var serverAddress = !{JSON.stringify(serverAddress)};			
 							initMap();
 						br
 						br
