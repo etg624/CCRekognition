@@ -839,6 +839,7 @@ exports.musterLive= function(req, res) {
                     console.log('here is the RESEVACDISPLAY '+JSON.stringify(resEvacDisplay.length))
 
                     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    
 
                     evacuation.updateUnaccounted(musterID, resEvacDisplay, function(err, result ){ 
                       if (err) {
