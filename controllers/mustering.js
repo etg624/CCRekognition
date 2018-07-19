@@ -728,6 +728,10 @@ exports.musterLive= function(req, res) {
             // loop through the evac array and remove entry if badgeId record exists in the muster array 
             //console.log('whats the array length  ' + JSON.stringify(resEvacs.length));
             //console.log('whats the array value  ' + JSON.stringify(resEvacs[0].iClassNumber));
+
+            console.log('logging resEvacs from mustering.js');
+            console.log(resEvacs)
+
             var origEvacLength = resEvacs.length;
             var resEvacDisplay = resEvacs
             var resTotalScanned = resz1.length
@@ -753,9 +757,7 @@ exports.musterLive= function(req, res) {
             //   }
             // }
             // Loop through the muster records and remove them from the evac array
-            
-            console.log('logging resz1 from mustering.js');
-            console.log(resz1);
+
             for (var i=0; i < resz1.length; i++) {
               
               
