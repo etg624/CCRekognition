@@ -49,6 +49,10 @@ module.exports.handleIncoming = function (req, res) {
             Field: 'Phone',
             Value: phone
           }
+
+          console.log('logging getEventResults from SMSCheckinController')
+          console.log(getEventResults);
+          
           SMSCheckInModel.getPerson(json, function (err, getPersonResults) {
             if (err) {
               console.log(err);
