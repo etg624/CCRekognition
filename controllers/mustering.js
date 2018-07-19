@@ -717,7 +717,8 @@ exports.musterLive= function(req, res) {
           }
           else {
 
-            
+
+            console.log('getting to before getEvacuationList');
           evacuation.getEvacuationList(function(err, resEvacs){ 
            if (err) {
             console.log('Error while performing get evac records: ' + err);
