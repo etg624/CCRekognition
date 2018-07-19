@@ -86,23 +86,23 @@ module.exports.sendIncidentEmail = function (data) {
 
     console.log('sendIncidentEmail called');
 
-    var smtpConfig = {
-        //host: 'smtp.mail.com',
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        secure: process.env.EMAIL_SECURE, // use SSL
-        auth: {
-            user: process.env.EMAIL_USER,
-            //pass: 'Dragonseat6000!'
-            pass: process.env.EMAIL_PASS
-        },
-        pool: true,
-        maxConnections: 1,
-        rateDelta: 20000,
-        rateLimit: 3
-    };
+    // var smtpConfig = {
+    //     //host: 'smtp.mail.com',
+    //     host: process.env.EMAIL_HOST,
+    //     port: process.env.EMAIL_PORT,
+    //     secure: process.env.EMAIL_SECURE, // use SSL
+    //     auth: {
+    //         user: process.env.EMAIL_USER,
+    //         //pass: 'Dragonseat6000!'
+    //         pass: process.env.EMAIL_PASS
+    //     },
+    //     pool: true,
+    //     maxConnections: 1,
+    //     rateDelta: 20000,
+    //     rateLimit: 3
+    // };
 
-    var transporter = nodemailer.createTransport(smtpConfig);
+    // var transporter = nodemailer.createTransport(smtpConfig);
 
     var title = process.env.EMERGENCY_TITLE
     var message = `
@@ -142,19 +142,20 @@ Randy
         // Email report
         if (data[i].EmailAddress != "" && data[i].EmailAddress != null) {
 
+            console.log('are we getting here hoe?')
             var to = data[i].EmailAddress;
 
             // setup email data with unicode symbols
-            var mailOptions = {
-                //from: 'dragonseat@mail.com>', // sender address
-                from: process.env.EMAIL_FROMADDR, // sender address
-                to: to, // list of receivers
-                subject: title, // Subject line
-                text: message, //
-                //text: 'there was an error connecting to the database', //
-                html: '<b>' + message + '</b>' // html body
+            // var mailOptions = {
+            //     //from: 'dragonseat@mail.com>', // sender address
+            //     from: process.env.EMAIL_FROMADDR, // sender address
+            //     to: to, // list of receivers
+            //     subject: title, // Subject line
+            //     text: message, //
+            //     //text: 'there was an error connecting to the database', //
+            //     html: '<b>' + message + '</b>' // html body
 
-            };
+            // };
 
             //send mail with defined transport object
             // transporter.sendMail(mailOptions, (error, info) => {
