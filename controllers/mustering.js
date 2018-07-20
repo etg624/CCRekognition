@@ -1723,7 +1723,7 @@ exports.emailUnaccounted = function(req, res) {
   var musterID = req.params.musterID;
  
  //###### Sat Apr 28 18:24:30 CDT 2018 Only get the emails for this musterID
-    evacuation.getUnaccounted("Email", musterID, function(err,reslt){  
+    evacuation.getUnaccounted("", musterID, function(err,reslt){  
       if (err) {
 
         console.error('Error connecting to database: '+ err);
