@@ -191,7 +191,7 @@ EmailModel.checkIn(json, function (err, checkInResult) {
     if (err) {
         res.end();
     } else {
-        res.json(checkInResult);
+        res.json('Thank you, '  + getPersonResult[0].FirstName + '. You have checked in.');
     }
 })        
     }
