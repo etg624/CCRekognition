@@ -278,10 +278,14 @@ if (process.env.CC_SSL == "YES"){
  var matches = [];
 
 
+ // We are clearing the distribution_list table then filling it up with the newest data from Microsoft Graph
  clearDistributionLists();
 
 
  // ******************************** BELOW 3: For adding people to DB
+
+ // currently these aren't being called
+
  function callAPIForPeople() {
    // Get an access token for the app.
    auth.getAccessToken().then(function (token) {
@@ -415,12 +419,15 @@ if (process.env.CC_SSL == "YES"){
 
  // ******************************** BELOW 4: For adding distribution lists
 
+ // these are being called
+
  function clearDistributionLists() {
 
   console.log('clearDistributionLists called');
 
    request.del(process.env.SERVER_ADDRESS + "/distributionlist", function (err, res, body) {
      if (err) {
+       console.log(err);
      } else {
        clearDistributionListMembers()
      }
