@@ -8,10 +8,10 @@ var archiver = require('archiver');
 const { fork } = require('child_process');
 
 //////////////////////////////////////////////////////
-//handler for showing the photo recognition page         //
+//handler for showing the photo recognition page    //
 //////////////////////////////////////////////////////
 exports.photoRecognitionHome = function (req, res) {
-  var sess = req.session;
+  sess = req.session;
   // console.log(req);
   sess.photosSuccess = null;
   sess.photosError = null;
@@ -20,26 +20,19 @@ exports.photoRecognitionHome = function (req, res) {
   if (typeof sess.username == 'undefined') {
     res.redirect('/');
   } else {
-
-
-
-    var name = req.query.name;
-    var contents = {
-      about: 'Use this screen to select the CSV file containing your exported PACS data.',
-      contact: 'Command Center will update the MOBSS database with any changes.'
-    };
-    //res.render('photos');
-    res.render('photoRecognition', { title: 'Command Center 5.0' + name, username: sess.username, content: contents[name] });
+    res.render('PhotoRecognitionView');
+    // res.render('PhotoRecognitionView', { title: 'Command Center 5.0' + name, username: sess.username, content: contents[name] });
   }
 };
 
 
 ///////////////////////////////////////////////////////////////////
-//** handler for indexing photos into rekognition collection //
+//** handler for indexing photos into rekognition collection //////
 ///////////////////////////////////////////////////////////////////
 
 exports.photoRecognitionIndex = function (req, res) {
-  let sess = req.session;
+  // Tried declaring sess with let/var, but it causes problems where it can't be accessed in view since not in global scope (i think)
+  sess = req.session;
   let moveFrom = req.body.directorySource;
 
   // Loop through all the files in the source directory
@@ -48,12 +41,12 @@ exports.photoRecognitionIndex = function (req, res) {
       console.error("Could not list the directory.", err);
       sess.indexSuccess = null;
       sess.indexError = 'Directory does not exist or not accessible';
-      res.render('photoRecognition', { title: 'Command Center 360', username: sess.username, success: sess.indexSuccess, error: sess.indexError });
+      res.render('PhotoRecognitionView', { title: 'Command Center 360', username: sess.username, success: sess.indexSuccess, error: sess.indexError });
       //process.exit( 1 );
     } else {
 
       const fork = require('child_process').fork;
-      const program = path.resolve('RekogPhotos.js');
+      const program = path.resolve('controllers/IndexFacesController');
       const parameters = [];
       const options = {
         // stdio: [ 'pipe', 'pipe', 'pipe', 'ipc' ]
@@ -65,12 +58,13 @@ exports.photoRecognitionIndex = function (req, res) {
         child.send({files: files, moveFrom: moveFrom});
       });
 
-
+      // QUESTION: shouldn't we run the below code only if the child process completes???
 
       //feb--finished looping through the directory, so process successful response
       sess.indexSuccess = 'Photos indexed successfully';
       sess.indexError = null;
-      res.render('photoRecognition', { title: 'Command Center 360', username: sess.username, success: sess.indexSuccess });
+      res.redirect('/photoRecognition');
+      // res.render('PhotoRecognitionView', { title: 'Command Center 360', username: sess.username, success: sess.indexSuccess });
     }
   });
 };
@@ -80,31 +74,22 @@ exports.photoRecognitionIndex = function (req, res) {
 ///////////////////////////////////////////////////////////////////////////
 
 exports.photoRecognitionSearch = function (req, res) {
-
-};
-
-exports.photosIngest = function (req, res) {
-
-
-  console.log('am i getting into the ingest handler');
+  console.log('wooahhheeh lets search man');
   sess = req.session;
-  // Going to need this to be a user input or a parameter.  User selected from and to but with To showing a default to the
-  var moveFrom = req.body.directorySource;
-
-  var moveTo = "./public/photosforreader";
+  let moveFrom = req.body.directorySource;
 
   // Loop through all the files in the source directory
   fs.readdir(moveFrom, function (err, files) {
     if (err) {
       console.error("Could not list the directory.", err);
-      sess.photosSuccess = null;
-      sess.photosError = 'Directory does not exist or not accessible';
-      res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess, error: sess.photosError });
+      sess.searchFacesSuccess = null;
+      sess.searchFacesError = 'Directory does not exist or not accessible';
+      res.render('PhotoRecognitionView', { title: 'Command Center 360', username: sess.username, success: sess.searchFacesSuccess, error: sess.searchFacesError });
       //process.exit( 1 );
     } else {
 
       const fork = require('child_process').fork;
-      const program = path.resolve('ProcessImages.js');
+      const program = path.resolve('controllers/SearchFacesByImageController');
       const parameters = [];
       const options = {
         // stdio: [ 'pipe', 'pipe', 'pipe', 'ipc' ]
@@ -119,13 +104,13 @@ exports.photosIngest = function (req, res) {
 
 
       //feb--finished looping through the directory, so process successful response
-      sess.photosSuccess = 'Photos processed successfully';
-      sess.photosError = null;
-      res.render('photos', { title: 'Command Center 360', username: sess.username, success: sess.photosSuccess });
+      sess.searchFacesSuccess = 'Photos searched successfully';
+      sess.searchFacesError = null;
+      res.redirect('/photoRecognition');
+      // res.render('PhotoRecognitionView', { title: 'Command Center 360', username: sess.username, success: sess.searchFacesSuccess });
     }
   });
-
-}; //feb--end of export.photosIngest
+};
 
 /**
  ================================================================================================
