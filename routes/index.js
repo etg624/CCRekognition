@@ -68,6 +68,8 @@ var photosAPI = require('../api/photos')
 ////###### Fri May 31 14:21:39 PST 2018
 var SMSCheckInController = require('../controllers/SMSCheckInController');
 
+////###### Tues Aug 14 14:21:39 PST 2018
+var photoRecognition = require('../controllers/PhotoRecognition');
 
 /* GET home page. */
 //router.get('/', function(req, res, next) {
@@ -95,6 +97,12 @@ router.get('/photoCheck', photos.photoCheck);
 // show photo check page
 router.post('/photoCheck', photos.photoCheckProcess);
 // show general pagesrouter.get('/photoCheck', photos.photoCheck);
+
+router.get('/photoRecognition', photoRecognition.photoRecognitionHome);
+router.post('/photoRecognition/index', photoRecognition.photoRecognitionIndex);
+router.post('/photoRecognition/search', photoRecognition.photoRecognitionSearch);
+
+
 // show cardholders page
 router.get('/cardholders', cardholders.cardholdersHome);
 router.get('/badgeDetail/:badgeID', badges.badgesGetOne);
