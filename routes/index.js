@@ -69,7 +69,7 @@ var photosAPI = require('../api/photos')
 var SMSCheckInController = require('../controllers/SMSCheckInController');
 
 ////###### Tues Aug 14 14:21:39 PST 2018
-var photoRecognition = require('../controllers/PhotoRecognition');
+var photoRecognition = require('../controllers/PhotoRecognitionController');
 
 /* GET home page. */
 //router.get('/', function(req, res, next) {
