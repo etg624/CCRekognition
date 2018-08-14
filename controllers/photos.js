@@ -69,7 +69,7 @@ exports.photosIngest = function (req, res) {
     } else {
 
       const fork = require('child_process').fork;
-      const program = path.resolve('RekogPhotos.js');
+      const program = path.resolve('ProcessImages.js');
       const parameters = [];
       const options = {
         // stdio: [ 'pipe', 'pipe', 'pipe', 'ipc' ]
