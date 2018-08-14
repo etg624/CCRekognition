@@ -1,5 +1,7 @@
 var fs = require('fs');
 var path = require('path');
+var sharp = require('sharp');
+var moveTo = "./public/photosforreader";
 var AWS = require('aws-sdk');
 AWS.config.update({ region: 'us-west-2' }); // TODO:can also use a global config onject in same way as credentials
 var rekognition = new AWS.Rekognition();
@@ -11,14 +13,14 @@ if (process.send) {
 
 process.on('message', message => {
   // console.log('message from parent:', message);
-
+  var itemsProcessed = 0;
   var imagesIndexed = 0;
   var numberOfImages = 0;
 
   message.files.forEach(function (file, index) {
 
     var fromPath = path.join(message.moveFrom, file);
-    // var toPath = path.join(moveTo, file);
+    var toPath = path.join(moveTo, file);
 
     // check if file is .png or .jpg
     if (fromPath.slice(-3) === 'png' || fromPath.slice(-3) === 'jpg') {
@@ -46,17 +48,29 @@ process.on('message', message => {
             imagesIndexed++;
             console.log(JSON.stringify(data));
             if (imagesIndexed === numberOfImages) {
-              callback();
+              // was 200, 300.  changed to smaller size 7/7/17  
+              sharp(fromPath).resize(100, 150).toFile(toPath, function (err) {
+                if (err) {
+                  console.log("One of the files is not in expected format (.jpg) " + err);
+                  return;
+                } else {
+                  itemsProcessed++;
+                  if (itemsProcessed === numberOfImages) {
+                    callback();
+                  }
+                }
+              });
             }
-          }         
+          }
         });
       });
     }
   });
 
-  function callback() { 
-    console.log('done');
-    // createLogEntry('done'); 
+  
+  function callback() {
+    // console.log('done');
+    createLogEntry('done'); 
   }
 
   function createLogEntry(param) {
