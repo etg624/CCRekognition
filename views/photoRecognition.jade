@@ -1,0 +1,30 @@
+include mixins
+extends layout
+block content 
+            include navbar
+            .jumbotron
+              h3 Load or update cardholder photos 
+
+            form(method='post' action='/photoRecognition/index') 
+              h5 Enter the source directory for your photos and submit!
+                br
+                input(type='directory', name='directorySource')
+                br
+                br
+                button.btn.btn-lg.btn-primary(type="submit") Index photos now
+
+              br
+              br
+            form(method='post' action='/photoRecognition/search') 
+            h5 Enter the source directory for your photos and submit!
+              br
+              input(type='directory', name='directorySource')
+              br
+              br
+              button.btn.btn-lg.btn-primary(type="submit") Search photos now
+
+              h5(style="color: #CC3300;") #{sess.photosError}
+              h5(style="color: #00CC99;") #{sess.photosSuccess}
+              include footer
+
+ 
