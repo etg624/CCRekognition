@@ -21,37 +21,51 @@ process.on('message', message => {
     if (fromPath.slice(-3) === 'png' || fromPath.slice(-3) === 'jpg') {
       numberOfImages++;
 
-      fs.readFile(fromPath, 'base64', (err, data) => {
+      fs.readFile(fromPath, (err, data) => {
+        // Uploads image onto bucket first
+        var s3 = new AWS.S3();
 
-        // create a new base64 buffer out of the string passed to us by fs.readFile()
-        const buffer = new Buffer(data, 'base64');
+        s3.putObject({
+          Bucket: 'rekog-image-bucket',
+          Key: file,
+          //Body: base64data
+          Body: data
 
-        var params = {
-          CollectionId: "myTestImages",
-          DetectionAttributes: [
-          ],
-          ExternalImageId: file,
-          Image: {
-            Bytes: buffer
-          }
-        };
-
-        rekognition.indexFaces(params, function (err, data) {
-          if (err) console.error(err, err.stack); // an error occurred
+        }, function (err, data) {
+          if (err) console.error(err, err.stack);
           else {
-            // successful response
-            imagesIndexed++;
-            console.log(JSON.stringify(data));
-            if (imagesIndexed === numberOfImages) {
-              callback();
-            }
+            // Indexes faces into rekognition collection
+            var params = {
+              CollectionId: "myTestImages",
+              DetectionAttributes: [
+              ],
+              ExternalImageId: file,
+              Image: {
+                S3Object: {
+                  Bucket: "rekog-image-bucket",
+                  Name: file
+                }
+              }
+            };
+
+            rekognition.indexFaces(params, function (err, data) {
+              if (err) console.error(err, err.stack); // an error occurred
+              else {
+                // successful response
+                imagesIndexed++;
+                console.log(JSON.stringify(data));
+                if (imagesIndexed === numberOfImages) {
+                  callback();
+                }
+              }
+            });
           }
         });
       });
     }
   });
 
-  
+
   function callback() {
     console.log('done');
     // createLogEntry('done'); 
